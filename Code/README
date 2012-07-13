@@ -1,0 +1,15 @@
+1. To compile the program you need to install GNU gsl library
+   first. If you cannot install GSL in the standard library, you might
+   execute the following commands:
+
+   export CXXFLAGS="-g -O3 -I/your/installed/path/include -L/your/installed/path/lib" 
+   export LD_LIBRARY_PATH="/your/installed/path/lib:"$LD_LIBRARY_PATH 
+
+   in which /your/installed/path/ is the path where you install
+   GSL. The first one is for compiling and the second one is for
+   running gfold. It is suggested that the second command is added to
+   the .bashrc or .bash_profile file in the home directory.
+
+2. Compile the program by running command "make"
+
+3. The executable program is "gfold" with documentation in directory "doc"

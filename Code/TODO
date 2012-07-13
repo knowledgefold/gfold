@@ -1,0 +1,23 @@
+* Mon May  2 17:21:06 CST 2011
+** Fix the bug regarding segment bed in rnaseqExp.py
+
+* Mon Apr 25 10:09:56 CST 2011
+** Use the fact that mu would almost no change to accelerate the calculation of beta
+
+* Thu Apr 21 09:22:34 CST 2011
+** Add automatical checking of strand specificity.
+
+* Thu Apr 14 18:23:20 CST 2011
+** Implement the EM algorithm
+
+* Thu Apr 14 10:08:22 CST 2011
+** In each round that is not the first one, use the value in the last round as the init value Done
+
+* Wed Apr 13 14:06:45 CST 2011
+** Improve the speed of the program. Done
+
+* Tue Apr 12 10:24:37 CST 2011
+** Adjust code structure such that it is more extensible. Done
+
+* Sun Apr 10 22:49:59 CST 2011
+** Use max/min algorithms to maximize likelihood instead of taking derivatives and finding root. Done
