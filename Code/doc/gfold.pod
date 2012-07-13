@@ -129,7 +129,30 @@ downloaded from UCSC is in GPF format. For job B<count> only.
 
 =item B<-annf> <GPF/BED>
 
-The format of gene annotation file. Default GPF. For job B<count> only.
+The format of gene annotation file. Default GPF (Gene Prediction Format). For job B<count> only. 
+In short, from UCSC Table Browser, the 'knownGene' table with all fields is in GPF format and 
+the 'refGene' table without the first column is in GPF format. Note that for either 'knownGene' or 'refGene' 
+table, the downloaded file would contain a header which should be removed before calling GFOLD. More specifically,
+a file in GPF format contains 12 columns separated by TABs (adapted from UCSC):
+
+=begin html
+
+<TABLE BORDER="1">
+<TR><TD>name      </TD>      <TD> Name of gene</TD></TR>
+<TR><TD>chrom     </TD>      <TD> Reference sequence chromosome or scaffold</TD></TR>
+<TR><TD>strand    </TD>      <TD> + or - for strand</TD></TR>
+<TR><TD>txStart   </TD>      <TD> Transcription start position</TD></TR>
+<TR><TD>txEnd     </TD>      <TD> Transcription end position</TD></TR>
+<TR><TD>cdsStart  </TD>      <TD> Coding region start</TD></TR>
+<TR><TD>cdsEnd    </TD>      <TD> Coding region end</TD></TR>
+<TR><TD>exonCount </TD>      <TD> Number of exons</TD></TR>
+<TR><TD>exonStarts</TD>      <TD> Exon start positions separated by commas</TD></TR>
+<TR><TD>exonEnds  </TD>      <TD> Exon end positions separated by commas</TD></TR>
+<TR><TD>proteinID </TD>      <TD> UniProt display ID for Known Genes, UniProt accession or RefSeq protein ID for UCSC Genes </TD></TR>
+<TR><TD>alignID   </TD>      <TD> Unique identifier for each (known gene, alignment position) pair</TD></TR>
+</TABLE>
+
+=end html
 
 =item B<-tag> <file>
 
