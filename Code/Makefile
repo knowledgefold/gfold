@@ -25,5 +25,5 @@ dist: DataProcessor.hpp GFOLD.hpp Utility.hpp GeneInfo.hpp main.cc doc/gfold.pod
 	cp -r DataProcessor.hpp GFOLD.hpp Utility.hpp GeneInfo.hpp main.cc doc Makefile README ${package}
 	tar cvzf ${packagename} ${package}
 	rm -rf ${package}
-	cp ${packagename} doc/gfold.html doc/gfold.css doc/gfold.png web/
+	cp ${packagename} gfold.V1.0.2.tar.gz doc/gfold.html doc/gfold.css doc/gfold.png web/
 	tar cvzf gfoldweb.tar.gz web
