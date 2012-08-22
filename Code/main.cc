@@ -171,14 +171,16 @@ main(int argc, char* argv[])
     {
         die_arg_missing(gene_annotation == "", "-ann"); 
         die_arg_missing(short_reads_file == "", "-tag"); 
-        die_arg_wrong(gene_annotation_format != "GPF" && gene_annotation_format != "BED", "-annf");
+        die_arg_wrong(gene_annotation_format != "GPF" && gene_annotation_format != "BED" && gene_annotation_format != "GTF", "-annf");
         die_arg_wrong(short_reads_format != "SAM" && short_reads_format != "BED", "-tagf");
 
         GeneInfo gene_info(output_file, 1, strand_specific_code == 1, false, verbos_level);
         if (gene_annotation_format == "GPF")
             scanGPF(gene_annotation, gene_info, verbos_level);
-        else
+        else if (gene_annotation_format == "BED")
             scanAnnotBED(gene_annotation, gene_info, verbos_level);
+        else
+            scanGTF(gene_annotation, gene_info, verbos_level);
 
         if (short_reads_format == "SAM")
             scanSAM(short_reads_file, gene_info, verbos_level);

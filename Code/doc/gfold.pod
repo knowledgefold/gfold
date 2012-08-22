@@ -111,7 +111,7 @@ Print help information
 
 =item B<count>
 
-Given the gene annotation in GPF/BED format and mapped short reads in SAM/BED
+Given the gene annotation in GTF/GPF/BED format and mapped short reads in SAM/BED
 format, count the number of reads mapped to each gene. 
 
 =item B<diff>
@@ -126,10 +126,10 @@ For each gene, calculate GFOLD value and other statistics.
 
 =item B<-ann> <file>
 
-Gene annotation file in GPF/BED format. Note that the knownGene table
+Gene annotation file in GTF/GPF/BED format. Note that the knownGene table
 downloaded from UCSC is in GPF format. For job B<count> only.
 
-=item B<-annf> <GPF/BED>
+=item B<-annf> <GTF/GPF/BED>
 
 The format of gene annotation file. Default GPF (Gene Prediction Format). For job B<count> only. 
 In short, from UCSC Table Browser, the 'knownGene' table with all fields is in GPF format and 

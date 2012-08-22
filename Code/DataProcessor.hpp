@@ -537,6 +537,59 @@ void scanGPF(string from_file, GeneInfo& gene_info, int verbos_level = 0)
     infile.close();
 } // scanGPF
 
+
+/*
+ * Scan gene annotation file in GTF and get needed information
+ */
+void scanGTF(string from_file, GeneInfo& gene_info, int verbos_level = 0)
+{
+    fstream infile;
+    infile.open(from_file.data(), ios::in);
+    if (!infile.is_open())
+    {
+        cerr << "File " << from_file.data() << " can not be opened" << endl;
+        exit(1);
+    }
+
+    if (verbos_level > 0)
+        cerr << "-VL1 Loading gene annotation from file " << from_file << " ..." << endl;
+
+    uint32 line_cnt = 0;
+    string line;
+
+    while (getline(infile, line))
+    {
+        ++line_cnt;
+
+        vector<string> fields;
+        split(line, '\t', fields);
+
+        if (fields[2] != "exon")
+            continue;
+
+        //string& tran_id = fields[0];
+        string& chr = fields[0];
+        char strand = fields[6][0];
+        int start = fields[8].find("gene_id") + 9;
+        int end = fields[8].find("\"", start);
+        string gene_id = fields[8].substr(start, end - start); 
+
+        start = fields[8].find("transcript_id") + 16;
+        end = fields[8].find("\"", start);
+        string tran_id = fields[8].substr(start, end - start); 
+
+        start = atoi(fields[3].data()) - 1;  // GTF start coordinates are 1-based
+        end = atoi(fields[4].data());   // GTF end coordinates are 1-based
+        gene_info.OnAnExon(chr, strand, gene_id, tran_id, start, end);
+    }
+    gene_info.FinishLoadingExons();
+
+    if (verbos_level > 0)
+        cerr << "-VL1 " << line_cnt << " lines have been scanned" << endl;
+
+    infile.close();
+} // scanGTF
+
 /*
  * Scan annotation file in bed format. 
  */
