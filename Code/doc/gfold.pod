@@ -4,8 +4,6 @@
 
 gfold - Generalized fold change for ranking differentially expressed genes from RNA-seq data.
 
-=head1 DESCRIPTION
-
 GFOLD is especially useful when no replicate is available. GFOLD generalizes
 the fold change by considering the posterior distribution of log fold change,
 such that each gene is assigned a reliable fold change. It overcomes the
@@ -16,9 +14,9 @@ also overcomes the shortcoming of fold change that suffers from the fact that
 the fold change of genes with low read count are not so reliable as that of
 genes with high read count, even these two genes show the same fold change. 
 
-=head1 SYNOPSIS
+=head1 CITATION
 
-B<gfold> B<JOBS> B<OPTIONS>
+Feng J, Meyer CA, Wang Q, Liu JS, Liu XS, Zhang Y. GFOLD: a generalized fold change for ranking differentially expressed genes from RNA-seq data. B<Bioinformatics> 2012 
 
 =head1 VERSIONS
 
@@ -31,6 +29,10 @@ This version also calculates RPKM of each gene and removes some useless columns 
 of the previous version. <ref><a href="gfold.V1.0.4.tar.gz">gfold.V1.0.4.tar.gz</a></p>
 
 =end html
+
+=head1 SYNOPSIS
+
+B<gfold> B<JOBS> B<OPTIONS>
 
 =head1 EXAMPLES
 

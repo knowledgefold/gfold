@@ -25,9 +25,9 @@
 <ul>
 
 	<li><a href="#name">NAME</a></li>
-	<li><a href="#description">DESCRIPTION</a></li>
-	<li><a href="#synopsis">SYNOPSIS</a></li>
+	<li><a href="#citation">CITATION</a></li>
 	<li><a href="#versions">VERSIONS</a></li>
+	<li><a href="#synopsis">SYNOPSIS</a></li>
 	<li><a href="#examples">EXAMPLES</a></li>
 	<ul>
 
@@ -55,10 +55,6 @@
 <hr />
 <h1><a name="name">NAME</a></h1>
 <p>gfold - Generalized fold change for ranking differentially expressed genes from RNA-seq data.</p>
-<p>
-</p>
-<hr />
-<h1><a name="description">DESCRIPTION</a></h1>
 <p>GFOLD is especially useful when no replicate is available. GFOLD generalizes
 the fold change by considering the posterior distribution of log fold change,
 such that each gene is assigned a reliable fold change. It overcomes the
@@ -71,8 +67,8 @@ genes with high read count, even these two genes show the same fold change.</p>
 <p>
 </p>
 <hr />
-<h1><a name="synopsis">SYNOPSIS</a></h1>
-<p><strong>gfold</strong> <strong>JOBS</strong> <strong>OPTIONS</strong></p>
+<h1><a name="citation">CITATION</a></h1>
+<p>Feng J, Meyer CA, Wang Q, Liu JS, Liu XS, Zhang Y. GFOLD: a generalized fold change for ranking differentially ex-pressed genes from RNA-seq data. <strong>Bioinformatics</strong> 2012</p>
 <p>
 </p>
 <hr />
@@ -80,6 +76,11 @@ genes with high read count, even these two genes show the same fold change.</p>
 <p>V1.0.2. The first released version. <ref><a href="gfold.V1.0.2.tar.gz">gfold.V1.0.2.tar.gz</a></p><p>V1.0.4. When no replicate is available, calculate GFOLD accurately instead of using MCMC. 
 This version also calculates RPKM of each gene and removes some useless columns in the output 
 of the previous version. <ref><a href="gfold.V1.0.4.tar.gz">gfold.V1.0.4.tar.gz</a></p><p>
+</p>
+<hr />
+<h1><a name="synopsis">SYNOPSIS</a></h1>
+<p><strong>gfold</strong> <strong>JOBS</strong> <strong>OPTIONS</strong></p>
+<p>
 </p>
 <hr />
 <h1><a name="examples">EXAMPLES</a></h1>
