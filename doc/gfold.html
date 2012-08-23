@@ -2,7 +2,7 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
-<title>GFOLD V1.0.4</title>
+<title>GFOLD V1.0.5</title>
 <link rel="stylesheet" href="gfold.css" type="text/css" />
 <meta http-equiv="content-type" content="text/html; charset=utf-8" />
 <link rev="made" href="mailto:assp@beta.macosforge.org" />
@@ -12,7 +12,7 @@
 <table border="0" width="100%" cellspacing="0" cellpadding="3">
 <tr><td width="10%" class="block" align="left"> <img align=center src="gfold.png"></img> </td>
 <td class="block" valign="middle">
-<big><strong><span class="block">&nbsp;GFOLD V1.0.4</span></strong></big>
+<big><strong><span class="block">&nbsp;GFOLD V1.0.5</span></strong></big>
 </td></tr>
 </table>
 
@@ -68,7 +68,7 @@ genes with high read count, even these two genes show the same fold change.</p>
 </p>
 <hr />
 <h1><a name="citation">CITATION</a></h1>
-<p>Feng J, Meyer CA, Wang Q, Liu JS, Liu XS, Zhang Y. GFOLD: a generalized fold change for ranking differentially ex-pressed genes from RNA-seq data. <strong>Bioinformatics</strong> 2012</p>
+<p>Feng J, Meyer CA, Wang Q, Liu JS, Liu XS, Zhang Y. GFOLD: a generalized fold change for ranking differentially expressed genes from RNA-seq data. <strong>Bioinformatics</strong> 2012</p>
 <p>
 </p>
 <hr />
@@ -146,7 +146,7 @@ group will be used as the variance of the second group.</p>
 <dt><strong><a name="count" class="item"><strong>count</strong></a></strong></dt>
 
 <dd>
-<p>Given the gene annotation in GPF/BED format and mapped short reads in SAM/BED
+<p>Given the gene annotation in GTF/GPF/BED format and mapped short reads in SAM/BED
 format, count the number of reads mapped to each gene.</p>
 </dd>
 <dt><strong><a name="diff" class="item"><strong>diff</strong></a></strong></dt>
@@ -163,10 +163,10 @@ format, count the number of reads mapped to each gene.</p>
 <dt><strong><a name="ann_file" class="item"><strong>-ann</strong> &lt;file&gt;</a></strong></dt>
 
 <dd>
-<p>Gene annotation file in GPF/BED format. Note that the knownGene table
+<p>Gene annotation file in GTF/GPF/BED format. Note that the knownGene table
 downloaded from UCSC is in GPF format. For job <strong>count</strong> only.</p>
 </dd>
-<dt><strong><a name="annf_gpf_bed" class="item"><strong>-annf</strong> &lt;GPF/BED&gt;</a></strong></dt>
+<dt><strong><a name="annf_gtf_gpf_bed" class="item"><strong>-annf</strong> &lt;GTF/GPF/BED&gt;</a></strong></dt>
 
 <dd>
 <p>The format of gene annotation file. Default GPF (Gene Prediction Format). For job <strong>count</strong> only. 
@@ -355,7 +355,7 @@ Please refer to <strong>1stRPKM</strong> for more information.</p>
 <p>Jianxing Feng (<a href="mailto:jianxing.tongji@gmail.com">jianxing.tongji@gmail.com</a>)</p>
 <table border="0" width="100%" cellspacing="0" cellpadding="3">
 <tr><td class="block" valign="middle">
-<big><strong><span class="block">&nbsp;GFOLD V1.0.4</span></strong></big>
+<big><strong><span class="block">&nbsp;GFOLD V1.0.5</span></strong></big>
 </td></tr>
 </table>
 
