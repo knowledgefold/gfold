@@ -23,7 +23,7 @@ INSTALLATION
    to reload you config file
 
    source ~/.bash_profile        # If you are using MacOS
-   source ~/.bash_rc             # If you are using Linux
+   source ~/.bashrc              # If you are using Linux
    
    To check whether your setting is correct, you can execute the 
    following command in the terminal
@@ -47,7 +47,7 @@ INSTALLATION
 
    If it happens, please following step 1 again. If error remains, please try the following command:
 
-   g++ -O3 -Wall -lgsl -lgslcblas -g main.cc -o gfold -I/your/installed/path/include
+   g++ -O3 -Wall -lgsl -lgslcblas -g main.cc -o gfold -I/your/installed/path/include -L/your/installed/path/lib
 
 3. The executable program is "gfold" with documentation in directory "doc"
 
