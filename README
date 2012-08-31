@@ -1,3 +1,13 @@
+VERSIONS:
+V1.0.5. GTF format for the gene annotation is supported.
+
+V1.0.4. When no replicate is available, calculate GFOLD accurately instead of
+using MCMC. This version also calculates RPKM of each gene and removes some
+useless columns in the output of the previous version.
+
+V1.0.2. The first released version, which generates the results of the paper.
+
+INSTALLATION
 1. To compile the program you need to install GNU gsl library
    first. If you cannot install GSL in the standard library, you might
    execute the following commands:
@@ -25,7 +35,7 @@
    the existence of this directory and make sure that there is a 'gsl' fold
    in this directory.
                               
-2. Compile the program by run ning command "make". If GSL libraray is not set correctly, 
+2. Compile the program by running command "make". If GSL libraray is not set correctly, 
    errors as the following would occur.
                               
    g++ -O3 -Wall -lgsl -lgslcblas -g main.cc -o gfold
@@ -40,3 +50,4 @@
    g++ -O3 -Wall -lgsl -lgslcblas -g main.cc -o gfold -I/your/installed/path/include
 
 3. The executable program is "gfold" with documentation in directory "doc"
+
