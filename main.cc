@@ -81,7 +81,7 @@ main(int argc, char* argv[])
     // For job 'preprocess'
     string ref_seq_file = "";
     string gene_annotation = "";
-    string gene_annotation_format = "GPF";
+    string gene_annotation_format = "GTF";
     string short_reads_file = ""; 
     string short_reads_format = "SAM"; 
 

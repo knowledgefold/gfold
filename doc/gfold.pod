@@ -38,14 +38,14 @@ B<gfold> B<JOBS> B<OPTIONS>
 
 =head2 Example 1: Count reads and rank genes
 
-In the following example, hg19Ref.gpf is the ucsc knownGene table for hg19;
+In the following example, hg19Ref.gtf is the ucsc knownGene table for hg19;
 sample1.sam and sample2.sam are the mapped reads in SAM format. 
 
 =over 3
 
-=item B<gfold count -ann hg19Ref.gpf -tag sample1.sam -o sample1.read_cnt>
+=item B<gfold count -ann hg19Ref.gtf -tag sample1.sam -o sample1.read_cnt>
 
-=item B<gfold count -ann hg19Ref.gpf -tag sample2.sam -o sample2.read_cnt>
+=item B<gfold count -ann hg19Ref.gtf -tag sample2.sam -o sample2.read_cnt>
 
 =item B<gfold diff -s1 sample1 -s2 sample2 -suf .read_cnt -o sample1VSsample2.diff >
 
@@ -58,7 +58,7 @@ This example utilizes samtools to produce mapped reads in SAM format from BAM fo
 
 =over 3
 
-=item B<samtools view sample1.bam | gfold count -ann hg19Ref.gpf -tag stdin -o sample1.read_cnt>
+=item B<samtools view sample1.bam | gfold count -ann hg19Ref.gtf -tag stdin -o sample1.read_cnt>
 
 =back
 
@@ -131,8 +131,8 @@ downloaded from UCSC is in GPF format. For job B<count> only.
 
 =item B<-annf> <GTF/GPF/BED>
 
-The format of gene annotation file. Default GPF (Gene Prediction Format). For job B<count> only. 
-In short, from UCSC Table Browser, the 'knownGene' table with all fields is in GPF format and 
+The format of gene annotation file. Default GTF (Gene Transfer Format). For job B<count> only. 
+In short, from UCSC Table Browser, the 'knownGene' table with all fields is in GPF (Gene Prediction Format) format and 
 the 'refGene' table without the first column is in GPF format. Note that for either 'knownGene' or 'refGene' 
 table, the downloaded file would contain a header which should be removed before calling GFOLD. More specifically,
 a file in GPF format contains 12 columns separated by TABs (adapted from UCSC):
