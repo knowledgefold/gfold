@@ -10,6 +10,19 @@
    running gfold. It is suggested that the second command is added to
    the .bashrc or .bash_profile file in the home directory.
 
-2. Compile the program by running command "make"
+2. Compile the program by running command "make". If GSL libraray is not set correctly, 
+   errors as the following would occur.
+
+   g++ -O3 -Wall -lgsl -lgslcblas -g main.cc -o gfold
+   In file included from GeneInfo.hpp:29,
+                    from main.cc:24:
+   Utility.hpp:69:36: error: gsl/gsl_statistics_int.h: No such file or directory
+   Utility.hpp:70:28: error: gsl/gsl_vector.h: No such file or directory
+   ...
+
+   If it happens, please make sure the existence of the folder '/your/installed/path/include/gsl' 
+   and the fold contains many .h files. If error remains, please try the following command:
+
+   g++ -O3 -Wall -lgsl -lgslcblas -g main.cc -o gfold -I/your/installed/path/include
 
 3. The executable program is "gfold" with documentation in directory "doc"
