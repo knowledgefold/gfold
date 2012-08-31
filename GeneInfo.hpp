@@ -806,8 +806,16 @@ public:
             exit(1);
         }
 
+        double seq_depth = 0;
         for_each_ele_in_group(iter, str2int_t, gene_cnt)
-        output << iter->first << "\t" << iter->second << "\t" << gene_length[iter->first] << endl;
+            seq_depth += iter->second;
+        seq_depth /= 1000000;
+
+        for_each_ele_in_group(iter, str2int_t, gene_cnt)
+            output << iter->first << "\t" 
+                   << iter->second << "\t" 
+                   << gene_length[iter->first] << "\t" 
+	               << iter->second * 1000.0 / gene_length[iter->first] / seq_depth << endl;
 
         output.close();
     }

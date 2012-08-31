@@ -1,4 +1,7 @@
 VERSIONS:
+V1.0.6. A more comprehensive installation instruction is added. GTF format is
+set to default. RPKM is added in the 'count' output.
+
 V1.0.5. GTF format for the gene annotation is supported.
 
 V1.0.4. When no replicate is available, calculate GFOLD accurately instead of

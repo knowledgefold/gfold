@@ -234,7 +234,7 @@ All fields in a output file are separated by TABs.
 
 =item For JOB B<count>:
 
-The output file contains 3 columns: 
+The output file contains 4 columns: 
 
 =over 3
 
@@ -249,6 +249,10 @@ The number of reads mapped to this gene.
 =item 3. B<Gene exon length>:
 
 The length sum of all the exons of this gene.
+
+=item 4. B<RPKM>:
+
+The expression level of this gene in RPKM.
 
 =back
 

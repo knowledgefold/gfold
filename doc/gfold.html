@@ -2,7 +2,7 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
-<title>GFOLD V1.0.5</title>
+<title>GFOLD V1.0.6</title>
 <link rel="stylesheet" href="gfold.css" type="text/css" />
 <meta http-equiv="content-type" content="text/html; charset=utf-8" />
 <link rev="made" href="mailto:assp@beta.macosforge.org" />
@@ -12,7 +12,7 @@
 <table border="0" width="100%" cellspacing="0" cellpadding="3">
 <tr><td width="10%" class="block" align="left"> <img align=center src="gfold.png"></img> </td>
 <td class="block" valign="middle">
-<big><strong><span class="block">&nbsp;GFOLD V1.0.5</span></strong></big>
+<big><strong><span class="block">&nbsp;GFOLD V1.0.6</span></strong></big>
 </td></tr>
 </table>
 
@@ -87,12 +87,12 @@ of the previous version. <ref><a href="gfold.V1.0.4.tar.gz">gfold.V1.0.4.tar.gz<
 <p>
 </p>
 <h2><a name="example_1__count_reads_and_rank_genes">Example 1: Count reads and rank genes</a></h2>
-<p>In the following example, hg19Ref.gpf is the ucsc knownGene table for hg19;
+<p>In the following example, hg19Ref.gtf is the ucsc knownGene table for hg19;
 sample1.sam and sample2.sam are the mapped reads in SAM format.</p>
 <dl>
-<dt><strong><a name="gfold_count_ann_hg19ref_gpf_tag_sample1_sam_o_sample1_read_cnt" class="item"><strong>gfold count -ann hg19Ref.gpf -tag sample1.sam -o sample1.read_cnt</strong></a></strong></dt>
+<dt><strong><a name="gfold_count_ann_hg19ref_gtf_tag_sample1_sam_o_sample1_read_cnt" class="item"><strong>gfold count -ann hg19Ref.gtf -tag sample1.sam -o sample1.read_cnt</strong></a></strong></dt>
 
-<dt><strong><a name="gfold_count_ann_hg19ref_gpf_tag_sample2_sam_o_sample2_read_cnt" class="item"><strong>gfold count -ann hg19Ref.gpf -tag sample2.sam -o sample2.read_cnt</strong></a></strong></dt>
+<dt><strong><a name="gfold_count_ann_hg19ref_gtf_tag_sample2_sam_o_sample2_read_cnt" class="item"><strong>gfold count -ann hg19Ref.gtf -tag sample2.sam -o sample2.read_cnt</strong></a></strong></dt>
 
 <dt><strong><a name="gfold_diff_s1_sample1_s2_sample2_suf_read_cnt_o_sample1vssample2_diff" class="item"><strong>gfold diff -s1 sample1 -s2 sample2 -suf .read_cnt -o sample1VSsample2.diff </strong></a></strong></dt>
 
@@ -102,7 +102,7 @@ sample1.sam and sample2.sam are the mapped reads in SAM format.</p>
 <h2><a name="example_2__count_reads">Example 2: Count reads</a></h2>
 <p>This example utilizes samtools to produce mapped reads in SAM format from BAM format.</p>
 <dl>
-<dt><strong><a name="samtools_view_sample1_bam_gfold_count_ann_hg19ref_gpf_tag_stdin_o_sample1_read_cnt" class="item"><strong>samtools view sample1.bam | gfold count -ann hg19Ref.gpf -tag stdin -o sample1.read_cnt</strong></a></strong></dt>
+<dt><strong><a name="samtools_view_sample1_bam_gfold_count_ann_hg19ref_gtf_tag_stdin_o_sample1_read_cnt" class="item"><strong>samtools view sample1.bam | gfold count -ann hg19Ref.gtf -tag stdin -o sample1.read_cnt</strong></a></strong></dt>
 
 </dl>
 <p>
@@ -169,8 +169,8 @@ downloaded from UCSC is in GPF format. For job <strong>count</strong> only.</p>
 <dt><strong><a name="annf_gtf_gpf_bed" class="item"><strong>-annf</strong> &lt;GTF/GPF/BED&gt;</a></strong></dt>
 
 <dd>
-<p>The format of gene annotation file. Default GPF (Gene Prediction Format). For job <strong>count</strong> only. 
-In short, from UCSC Table Browser, the 'knownGene' table with all fields is in GPF format and 
+<p>The format of gene annotation file. Default GTF (Gene Transfer Format). For job <strong>count</strong> only. 
+In short, from UCSC Table Browser, the 'knownGene' table with all fields is in GPF (Gene Prediction Format) format and 
 the 'refGene' table without the first column is in GPF format. Note that for either 'knownGene' or 'refGene' 
 table, the downloaded file would contain a header which should be removed before calling GFOLD. More specifically,
 a file in GPF format contains 12 columns separated by TABs (adapted from UCSC):</p>
@@ -280,7 +280,7 @@ of mapped reads. 'DESeq' stand for the normalization proposed by DESeq. Default
 <dt><strong><a name="for_job_count" class="item">For JOB <strong>count</strong>:</a></strong></dt>
 
 <dd>
-<p>The output file contains 3 columns:</p>
+<p>The output file contains 4 columns:</p>
 <ol>
 <li><strong><a name="genesymbol" class="item"><strong>GeneSymbol</strong>:</a></strong>
 
@@ -293,6 +293,10 @@ of mapped reads. 'DESeq' stand for the normalization proposed by DESeq. Default
 <li><strong><a name="gene_exon_length" class="item"><strong>Gene exon length</strong>:</a></strong>
 
 <p>The length sum of all the exons of this gene.</p>
+</li>
+<li><strong><a name="rpkm" class="item"><strong>RPKM</strong>:</a></strong>
+
+<p>The expression level of this gene in RPKM.</p>
 </li>
 </ol>
 </dd>
@@ -355,7 +359,7 @@ Please refer to <strong>1stRPKM</strong> for more information.</p>
 <p>Jianxing Feng (<a href="mailto:jianxing.tongji@gmail.com">jianxing.tongji@gmail.com</a>)</p>
 <table border="0" width="100%" cellspacing="0" cellpadding="3">
 <tr><td class="block" valign="middle">
-<big><strong><span class="block">&nbsp;GFOLD V1.0.5</span></strong></big>
+<big><strong><span class="block">&nbsp;GFOLD V1.0.6</span></strong></big>
 </td></tr>
 </table>
 
