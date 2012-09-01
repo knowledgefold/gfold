@@ -100,7 +100,12 @@ Print help information
 =item B<count>
 
 Given the gene annotation in GTF/GPF/BED format and mapped short reads in SAM/BED
-format, count the number of reads mapped to each gene. 
+format, count the number of reads mapped to each gene. Because of possible overlapping 
+of multiple genes, a read could be mapped to the overlaped region of multiple genes.
+In this case, a read is counted multiple times with each time for each gene. Furthermore,
+if a gene is on multiple chromosomes or different strands of the same chromosome, only exons
+on one strand of one chromosome (the one appear first in the annotation file) will be 
+assigned to this gene. Exons not on this strand of the chromosome will be discarded.
 
 =item B<diff>
 
