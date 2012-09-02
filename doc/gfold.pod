@@ -109,7 +109,14 @@ assigned to this gene. Exons not on this strand of the chromosome will be discar
 
 =item B<diff>
 
-For each gene, calculate GFOLD value and other statistics.
+For each gene, calculate GFOLD value and other statistics. B<diff> accepts the output of
+B<count> as the input. Please refer to the output format of B<count> for more
+information about the input format. If you are not satisfied with the strategy
+adopted by B<count>, you can generate gene read counts by yourself. The input for B<diff>
+should at least contain the first two columns of the output of B<count> and the orders
+of gene names are the same for different samples. If the third column of the output of B<count> 
+(gene length) is missed, RPKM in the output of B<diff> will not be generated. B<diff>
+does not use the forth column of the output of B<count>, the RPKM.
 
 =back
 

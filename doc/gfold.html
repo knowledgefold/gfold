@@ -26,7 +26,6 @@
 
 	<li><a href="#name">NAME</a></li>
 	<li><a href="#citation">CITATION</a></li>
-	<li><a href="#versions">VERSIONS</a></li>
 	<li><a href="#synopsis">SYNOPSIS</a></li>
 	<li><a href="#examples">EXAMPLES</a></li>
 	<ul>
@@ -70,12 +69,6 @@ genes with high read count, even these two genes show the same fold change.</p>
 <h1><a name="citation">CITATION</a></h1>
 <p>Feng J, Meyer CA, Wang Q, Liu JS, Liu XS, Zhang Y. GFOLD: a generalized fold change for ranking differentially expressed genes from RNA-seq data. <strong>Bioinformatics</strong> 2012</p>
 <p>
-</p>
-<hr />
-<h1><a name="versions">VERSIONS</a></h1>
-<p>V1.0.2. The first released version. <ref><a href="gfold.V1.0.2.tar.gz">gfold.V1.0.2.tar.gz</a></p><p>V1.0.4. When no replicate is available, calculate GFOLD accurately instead of using MCMC. 
-This version also calculates RPKM of each gene and removes some useless columns in the output 
-of the previous version. <ref><a href="gfold.V1.0.4.tar.gz">gfold.V1.0.4.tar.gz</a></p><p>
 </p>
 <hr />
 <h1><a name="synopsis">SYNOPSIS</a></h1>
@@ -147,12 +140,24 @@ group will be used as the variance of the second group.</p>
 
 <dd>
 <p>Given the gene annotation in GTF/GPF/BED format and mapped short reads in SAM/BED
-format, count the number of reads mapped to each gene.</p>
+format, count the number of reads mapped to each gene. Because of possible overlapping 
+of multiple genes, a read could be mapped to the overlaped region of multiple genes.
+In this case, a read is counted multiple times with each time for each gene. Furthermore,
+if a gene is on multiple chromosomes or different strands of the same chromosome, only exons
+on one strand of one chromosome (the one appear first in the annotation file) will be 
+assigned to this gene. Exons not on this strand of the chromosome will be discarded.</p>
 </dd>
 <dt><strong><a name="diff" class="item"><strong>diff</strong></a></strong></dt>
 
 <dd>
-<p>For each gene, calculate GFOLD value and other statistics.</p>
+<p>For each gene, calculate GFOLD value and other statistics. <strong>diff</strong> accepts the output of
+<strong>count</strong> as the input. Please refer to the output format of <strong>count</strong> for more
+information about the input format. If you are not satisfied with the strategy
+adopted by <strong>count</strong>, you can generate gene read counts by yourself. The input for <strong>diff</strong>
+should at least contain the first two columns of the output of <strong>count</strong> and the orders
+of gene names are the same for different samples. If the third column of the output of <strong>count</strong> 
+(gene length) is missed, RPKM in the output of <strong>diff</strong> will not be generated. <strong>diff</strong>
+does not use the forth column of the output of <strong>count</strong>, the RPKM.</p>
 </dd>
 </dl>
 <p>
