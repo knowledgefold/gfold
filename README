@@ -22,7 +22,7 @@ INSTALLATION
    GSL. The first one is for compiling and the second one is for running gfold.
    It is suggested that the second command is added to the .bashrc (for Linux)
    or .bash_profile (for MacOS) file in the home directory. If you added these
-   two lines, then please execute the following command to reload you config
+   two lines, then execute the following command to reload you config
    file
 
    source ~/.bash_profile        # If you are using MacOS
@@ -35,7 +35,7 @@ INSTALLATION
 
    If the output is empty then some steps above are not correctly followed.
    If the output is not empty, then the output should be a directory. Check
-   the existence of this directory and make sure that there is a 'gsl' fold
+   the existence of this directory and make sure that there is a 'gsl' folder
    in this directory.
                               
 2. Compile the program by running command "make". If GSL libraray is not set correctly, 
@@ -48,9 +48,8 @@ INSTALLATION
    Utility.hpp:70:28: error: gsl/gsl_vector.h: No such file or directory
    ...
 
-   If it happens, please following step 1 again. If error remains, please try the following command:
+   If it happens, follow step 1 again. If error remains, try the following command:
 
    g++ -O3 -Wall -lgsl -lgslcblas -g main.cc -o gfold -I/your/installed/path/include -L/your/installed/path/lib
 
 3. The executable program is "gfold" with documentation in directory "doc"
-
