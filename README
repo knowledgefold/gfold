@@ -1,3 +1,5 @@
+Note that https://bitbucket.org/feeldead/gfold/ may have updated README file
+
 VERSIONS:
 V1.0.6. A more comprehensive installation instruction is added. GTF format is
 set to default. RPKM is added in the 'count' output.
@@ -11,8 +13,8 @@ useless columns in the output of the previous version.
 V1.0.2. The first released version, which generates the results of the paper.
 
 INSTALLATION
-1. To compile the program you need to install GNU gsl library
-   first. If you cannot install GSL in the standard library, you need to
+1. To compile the program you need to install the latest GNU gsl library
+   (gsl-1.15) first. If you cannot install GSL in the standard library, you need to
    execute the following commands:
 
    export CXXFLAGS="-g -O3 -I/your/installed/path/include -L/your/installed/path/lib" 
@@ -50,6 +52,6 @@ INSTALLATION
 
    If it happens, follow step 1 again. If error remains, try the following command:
 
-   g++ -O3 -Wall -lgsl -lgslcblas -g main.cc -o gfold -I/your/installed/path/include -L/your/installed/path/lib
+   g++ -O3 -Wall -g main.cc -o gfold -lgsl -lgslcblas -I/your/installed/path/include -L/your/installed/path/lib
 
 3. The executable program is "gfold" with documentation in directory "doc"

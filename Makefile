@@ -5,10 +5,10 @@ packagename=gfold.$(VERSION).tar.gz
 all: program
 
 debug: DataProcessor.hpp GFOLD.hpp Utility.hpp GeneInfo.hpp main.cc
-	g++ -Wall -lgsl -lgslcblas -g main.cc -o gfold
+	g++ -Wall -g main.cc -o gfold -lgsl -lgslcblas 
 
 program: DataProcessor.hpp GFOLD.hpp Utility.hpp GeneInfo.hpp main.cc
-	g++ -O3 -Wall -lgsl -lgslcblas -g main.cc -o gfold
+	g++ -O3 -Wall -g main.cc -o gfold -lgsl -lgslcblas 
 
 docu: doc/gfold.pod
 	pod2man doc/gfold.pod > doc/gfold.man
