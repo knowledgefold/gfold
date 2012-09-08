@@ -92,7 +92,7 @@ public:
     {
         mFirstGroupCnt = first_group_samples.size();
 
-	vector<int> gene_length;
+        vector<int> gene_length;
         vector<vector<int> > first_group_gene_read_counts;
         vector<vector<int> > second_group_gene_read_counts;
 

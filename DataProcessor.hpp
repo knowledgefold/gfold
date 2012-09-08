@@ -426,7 +426,8 @@ void loadGeneReadCounts(string from_file, vector<string>& gene_sym, vector<int>&
 
         gene_sym.push_back(fields[0]);
         read_counts.push_back(atoi(fields[1].data()));
-	gene_length.push_back(atoi(fields[2].data()));
+        if (fields.size() > 2)
+            gene_length.push_back(atoi(fields[2].data()));
     }
 
     if (verbos_level > 0)
