@@ -806,7 +806,7 @@ public:
             exit(1);
         }
 
-        double seq_depth = 0;
+        double seq_depth = 1;
         for_each_ele_in_group(iter, str2int_t, gene_cnt)
             seq_depth += iter->second;
         seq_depth /= 1000000;
