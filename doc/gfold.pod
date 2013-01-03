@@ -197,15 +197,15 @@ prefixes are separated by commas. For job B<diff> only.
 
 The suffix for gene read count file specified by B<-s1> and B<-s2>. For job B<diff> only.
 
-=item B<-sc> <string>
+=item B<-sc> <num>
 
-The significant cutoff for fold change. Default 0.05. For job B<diff> only.
+The significant cutoff for fold change. Default 0.01. For job B<diff> only.
 
-=item B<-bi> <string>
+=item B<-bi> <num>
 
 For MCMC, the iterations for burn-in phase. Default 1000. For job B<diff> only.
 
-=item B<-si> <string>
+=item B<-si> <num>
 
 For MCMC, the iterations for sampling phase. Default 1000. For job B<diff> only.
 
