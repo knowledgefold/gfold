@@ -40,6 +40,16 @@ using namespace std;
 
 typedef map<string, vector<string> > string2vec_str_t;
 
+void
+die_input(string file, int line_cnt, string format, int field_cnt, int correct_cnt)
+{
+    if (field_cnt < correct_cnt)
+    {
+        cerr << "ERROR: file " << file <<", line " << line_cnt << " does not contain " << correct_cnt << " columns."<< endl;
+        exit(1);
+    }
+}
+
 /*
  * Transform a signature to integer
  */
@@ -512,6 +522,7 @@ void scanGPF(string from_file, GeneInfo& gene_info, int verbos_level = 0)
 
         vector<string> fields;
         split(line, '\t', fields);
+        die_input(from_file, line_cnt, "GPF", fields.size(), 12);
 
         //string& tran_id = fields[0];
         string& chr = fields[1];
@@ -568,6 +579,8 @@ void scanGTF(string from_file, GeneInfo& gene_info, int verbos_level = 0)
         if (fields[2] != "exon")
             continue;
 
+        die_input(from_file, line_cnt, "GTF", fields.size(), 9);
+
         //string& tran_id = fields[0];
         string& chr = fields[0];
         char strand = fields[6][0];
@@ -616,6 +629,7 @@ void scanAnnotBED(string from_file, GeneInfo& gene_info, int verbos_level = 0)
 
         vector<string> fields;
         split(line, '\t', fields);
+        die_input(from_file, line_cnt, "BED", fields.size(), 6);
 
         //string& tran_id = fields[0];
         string& chr = fields[0];
@@ -668,6 +682,7 @@ void scanReadsBED(string from_file, GeneInfo& gene_info, int verbos_level = 0)
 
         vector<string> fields;
         split(line, '\t', fields);
+        die_input(from_file, line_cnt, "BED", fields.size(), 6);
 
         if (verbos_level > 1 && line_cnt % 50000 == 0 )
             cerr << "--VL2 " << line_cnt << " reads have been scanned. "<< endl;
@@ -739,9 +754,13 @@ void scanSAM(string from_file, GeneInfo& gene_info, int verbos_level = 0)
         if (verbos_level > 1 && line_cnt % 50000 == 0 )
             cerr << "--VL2 " << line_cnt << " reads have been scanned. "<< endl;
 
+        int flag = atoi(fields[1].data());
+        if (flag & 0x4)   // No map
+            continue;
+        die_input(from_file, line_cnt, "SAM", fields.size(), 11);
+
         string& chr = fields[2];
         int start = atoi(fields[3].data()) - 1;   // Note that the position in SAM format is 1-based
-        int flag = atoi(fields[1].data());
         int read_len = fields[9].length();
         string& match_string = fields[5];
 
