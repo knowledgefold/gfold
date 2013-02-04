@@ -2,7 +2,7 @@ Note that https://bitbucket.org/feeldead/gfold/ may have updated README file
 
 VERSIONS:
 V1.0.8. Correct a bug of failing to load non-standard SAM format file. Specifically,
-when the read in the fiile is unmappable and the corresponding line contains less 
+when the read in the file is unmappable and the corresponding line contains less 
 than 11 columns (such as output of bowtie), previous versions of GFOLD would crash. 
 The bug is fixed. More detection of the incorrect input is added. A typo in the 
 documentation is corrected.
