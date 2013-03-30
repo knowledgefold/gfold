@@ -273,7 +273,10 @@ Default 2.</p>
 <dd>
 <p>The way to do normalization. 'Count' stands for normalization by total number
 of mapped reads. 'DESeq' stands for the normalization proposed by DESeq. 'NO' 
-stands for no normalization. Default 'DESeq'.</p>
+stands for no normalization. You can also specifiy a list of normalization constant
+separated by commas. E.g. 1.2,2.1,1.0,2.0. Note that the number of constants
+should be the same as the total number of samples (group1 and group2) and the order
+should be for -s1 followed by for -s2. Default 'DESeq'.</p>
 </dd>
 </dl>
 <p>

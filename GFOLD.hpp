@@ -467,6 +467,13 @@ private:
                 normalize_constants[i] = nor / denor;
             }
         }
+        else{
+            // The constants are specified explicitly.
+            vector<string> normconst;
+            split(mNormalizationMethod, ',', normconst);
+            for (size_t i = 0; i < normalize_constants.size(); ++i)
+                normalize_constants[i] = atof(normconst[i].data());
+        }
 
         double smallest = normalize_constants[0];
         for (size_t i = 1; i < normalize_constants.size(); ++i)

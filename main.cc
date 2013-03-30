@@ -196,8 +196,13 @@ main(int argc, char* argv[])
 
         if (normal_method != "NO" && normal_method != "Count" && normal_method != "TMM" && normal_method != "DESeq")
         {
-            cerr << "ERROR: Unknown normalization method : " << normal_method << endl;
-            exit(1);
+            vector<string> normconst;
+            split(normal_method, ',', normconst);
+            if (normconst.size() != first_group_samples.size() + second_group_samples.size())
+            {
+                cerr << "ERROR: Unknown normalization method : " << normal_method << endl;
+                exit(1);
+            }
         }
 
         if (first_group_samples == second_group_samples)
