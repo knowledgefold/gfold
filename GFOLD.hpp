@@ -372,7 +372,11 @@ private:
             total_cnt[i] = mean;
         }
 
-        if (mNormalizationMethod == "DESeq")
+        if (mNormalizationMethod == "NO")
+        {
+            normalize_constants.assign(normalize_constants.size(), 1.0);
+        }
+        else if (mNormalizationMethod == "DESeq")
         {
             bool b_succ = true;
             vector<double> curr_normalize_constants = normalize_constants;

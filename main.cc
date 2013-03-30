@@ -194,7 +194,7 @@ main(int argc, char* argv[])
         die_arg_missing(first_group_samples.size() == 0, "-s1"); 
         die_arg_missing(second_group_samples.size() == 0, "-s2"); 
 
-        if (normal_method != "Count" && normal_method != "TMM" && normal_method != "DESeq")
+        if (normal_method != "NO" && normal_method != "Count" && normal_method != "TMM" && normal_method != "DESeq")
         {
             cerr << "ERROR: Unknown normalization method : " << normal_method << endl;
             exit(1);

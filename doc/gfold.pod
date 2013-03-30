@@ -218,11 +218,11 @@ The maximum number of selected pairs for calculating empirical FDR. Default 20. 
 Verbos level. A larger value gives more information of the running process.
 Default 2.
 
-=item B<-norm> <Count/DESeq>
+=item B<-norm> <Count/DESeq/NO>
 
 The way to do normalization. 'Count' stands for normalization by total number
-of mapped reads. 'DESeq' stand for the normalization proposed by DESeq. Default
-'DESeq'. 
+of mapped reads. 'DESeq' stands for the normalization proposed by DESeq. 'NO' 
+stands for no normalization. Default 'DESeq'. 
 
 =back
 
