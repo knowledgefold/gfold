@@ -26,7 +26,7 @@
 #include "Utility.hpp"
 
 #define VERSION "V1.0.8"
-#define DATE "Tue Jan 29 06:54:57 CST 2013"
+#define DATE "Thu Apr 25 09:32:08 CST 2013"
 
 
 using namespace std;

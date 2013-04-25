@@ -82,10 +82,9 @@ group will be used as the variance of the second group.
 
 =over 3
 
-=item B<gfold diff -s1 sample1,sample2 -s2 sample3 -suf .read_cnt -o 123VS456.diff>
+=item B<gfold diff -s1 sample1,sample2 -s2 sample3 -suf .read_cnt -o 12VS3.diff>
 
 =back
-
 
 
 
