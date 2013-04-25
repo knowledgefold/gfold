@@ -44,7 +44,13 @@ Help()
     cout << "          Version  :   " << VERSION << endl;
     cout << "      =============================================================================== " << endl;
     cout <<                                                   endl;
-    cout << "      USAGE:   Please use command 'man doc/gfold.man' to find documentation." << endl;
+    cout << "      USAGE:   Please go to the source code directory and use command 'man doc/gfold.man' " << endl;
+    cout << "               or open doc/gfold.html to find documentation." << endl;
+    cout <<                                endl;
+    cout << "      Quick Examples: " << endl;
+    cout << "               gfold count -ann hg19Ref.gtf -tag sample1.sam -o sample1.read_cnt          " << endl;
+    cout << "               gfold count -ann hg19Ref.gtf -tag sample2.sam -o sample2.read_cnt          " << endl;
+    cout << "               gfold diff -s1 sample1 -s2 sample2 -suf .read_cnt -o sample1VSsample2.diff " << endl;
     cout <<                                endl;
 }
 
