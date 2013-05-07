@@ -25,7 +25,7 @@
 #include "GFOLD.hpp"
 #include "Utility.hpp"
 
-#define VERSION "V1.0.8"
+#define VERSION "V1.0.9"
 #define DATE "Tue May  7 11:06:24 CST 2013"
 
 
