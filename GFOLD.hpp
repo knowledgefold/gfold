@@ -259,28 +259,28 @@ public:
         if (mVerbosLevel > 0)
             cerr << "-VL1 Calculate RPKM ..." << endl;
 
-        int first_total_sum = 0;
-        int second_total_sum = 0;
+        double first_total_sum = 1;
+        double second_total_sum = 1;
         for (unsigned i = 0; i < first_group_total_counts.size(); ++i)
-	    first_total_sum += first_group_total_counts[i];
+            first_total_sum += first_group_total_counts[i];
         for (unsigned i = 0; i < second_group_total_counts.size(); ++i)
-	    second_total_sum += second_group_total_counts[i];
+            second_total_sum += second_group_total_counts[i];
         first_total_sum /= 1000000;
         second_total_sum /= 1000000;
 
         first_rpkm.assign(gene_length.size(), 0);
         second_rpkm = first_rpkm;
         for (unsigned i = 0; i < gene_length.size(); ++i)
-	{
-	    double first_sum = 0;
-	    for (unsigned j = 0; j < first_group_gene_read_counts.size(); ++j)
-	        first_sum += first_group_gene_read_counts[j][i];
-	    first_rpkm[i] = first_sum * 1000 / gene_length[i] / first_total_sum;
-	    double second_sum = 0;
-	    for (unsigned j = 0; j < second_group_gene_read_counts.size(); ++j)
-	        second_sum += second_group_gene_read_counts[j][i];
-	    second_rpkm[i] = second_sum * 1000 / gene_length[i] / second_total_sum;
-	}
+        {
+            double first_sum = 0;
+            for (unsigned j = 0; j < first_group_gene_read_counts.size(); ++j)
+                first_sum += first_group_gene_read_counts[j][i];
+            first_rpkm[i] = first_sum * 1000 / gene_length[i] / first_total_sum;
+            double second_sum = 0;
+            for (unsigned j = 0; j < second_group_gene_read_counts.size(); ++j)
+                second_sum += second_group_gene_read_counts[j][i];
+            second_rpkm[i] = second_sum * 1000 / gene_length[i] / second_total_sum;
+        }
     } // CalculateRPKM
 
     //--------------------------------------------------------------------------------------
