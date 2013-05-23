@@ -279,7 +279,10 @@ of mapped reads. 'DESeq' stands for the normalization proposed by DESeq. 'NO'
 stands for no normalization. You can also specifiy a list of normalization constant
 separated by commas. E.g. 1.2,2.1,1.0,2.0. Note that the number of constants
 should be the same as the total number of samples (group1 and group2) and the order
-should be for -s1 followed by for -s2. Default 'DESeq'.</p>
+should be for -s1 followed by for -s2. GFOLD using normalization constants not by
+directly multiplication (scaling up) nor division (scaling down). The normalization 
+constants will be built into the model. In the model, division or multiplication 
+has no difference. Default 'DESeq'.</p>
 </dd>
 </dl>
 <p>
