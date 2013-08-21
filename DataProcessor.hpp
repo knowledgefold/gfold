@@ -409,7 +409,7 @@ void loadSegInfo(string from_file, int sig_len, int strand_specific_code, vector
 /*
  * Read data from a file containing gene name and number of reads mapped to each gene 
  */
-void loadGeneReadCounts(string from_file, vector<string>& gene_sym, vector<int>& read_counts, vector<int>& gene_length, int verbos_level = 0)
+void loadGeneReadCounts(string from_file, vector<string>& gene_sym, vector<string>& gene_name, vector<int>& read_counts, vector<int>& gene_length, int verbos_level = 0)
 {
     fstream infile;
     infile.open(from_file.data(), ios::in);
@@ -435,9 +435,9 @@ void loadGeneReadCounts(string from_file, vector<string>& gene_sym, vector<int>&
         split(line, '\t', fields);
 
         gene_sym.push_back(fields[0]);
-        read_counts.push_back(atoi(fields[1].data()));
-        if (fields.size() > 2)
-            gene_length.push_back(atoi(fields[2].data()));
+        gene_name.push_back(fields[1]);
+        read_counts.push_back(atoi(fields[2].data()));
+        gene_length.push_back(atoi(fields[3].data()));
     }
 
     if (verbos_level > 0)
@@ -527,7 +527,8 @@ void scanGPF(string from_file, GeneInfo& gene_info, int verbos_level = 0)
         //string& tran_id = fields[0];
         string& chr = fields[1];
         char strand = fields[2][0];
-        string& gene_id = fields[11];
+        string& gene_id = fields[0];
+        string& gene_name = fields[11];
         string& tran_id = fields[0];
         int exon_cnt = atoi(fields[7].data());
         vector<string> starts, ends;
@@ -538,7 +539,7 @@ void scanGPF(string from_file, GeneInfo& gene_info, int verbos_level = 0)
         {
             int start = atoi(starts[i].data());
             int end = atoi(ends[i].data());
-            gene_info.OnAnExon(chr, strand, gene_id, tran_id, start, end);
+            gene_info.OnAnExon(chr, strand, gene_id, gene_name, tran_id, start, end);
         }
     }
     gene_info.FinishLoadingExons();
@@ -588,13 +589,22 @@ void scanGTF(string from_file, GeneInfo& gene_info, int verbos_level = 0)
         int end = fields[8].find("\"", start);
         string gene_id = fields[8].substr(start, end - start); 
 
-        start = fields[8].find("transcript_id") + 16;
+        start = fields[8].find("transcript_id") + 15;
         end = fields[8].find("\"", start);
         string tran_id = fields[8].substr(start, end - start); 
 
+        string gene_name = "NA";
+        start = fields[8].find("gene_name");
+        if ((size_t)start != string::npos)
+        {
+            start += 11;
+            end = fields[8].find("\"", start);
+            gene_name = fields[8].substr(start, end - start); 
+        }
+
         start = atoi(fields[3].data()) - 1;  // GTF start coordinates are 1-based
         end = atoi(fields[4].data());   // GTF end coordinates are 1-based
-        gene_info.OnAnExon(chr, strand, gene_id, tran_id, start, end);
+        gene_info.OnAnExon(chr, strand, gene_id, gene_name, tran_id, start, end);
     }
     gene_info.FinishLoadingExons();
 
@@ -639,7 +649,7 @@ void scanAnnotBED(string from_file, GeneInfo& gene_info, int verbos_level = 0)
 
         int start = atoi(fields[1].data());
         int end = atoi(fields[2].data());
-        gene_info.OnAnExon(chr, strand, gene_id, tran_id, start, end);
+        gene_info.OnAnExon(chr, strand, gene_id, "NA", tran_id, start, end);
     }
     gene_info.FinishLoadingExons();
 

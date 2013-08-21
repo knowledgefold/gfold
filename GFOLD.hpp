@@ -53,6 +53,7 @@ private:
 
     string2vec_str_t mGeneSegs;
     vector<string> mAllGeneIDs; 
+    vector<string> mAllGeneNames; 
 
     double mSignificantCutoff;
     int mBurnInCount;
@@ -101,10 +102,11 @@ public:
         { 
             string filename = first_group_samples[i] + sample_suffix;
             vector<string> gene_ids;
+            vector<string> gene_names;
 
             vector<vector<int> > dummy;
             first_group_gene_read_counts[i].resize(0);
-            loadGeneReadCounts(filename, gene_ids, first_group_gene_read_counts[i], gene_length, mVerbosLevel);
+            loadGeneReadCounts(filename, gene_ids, gene_names, first_group_gene_read_counts[i], gene_length, mVerbosLevel);
 
             if (mAllGeneIDs.size() > 0 && mAllGeneIDs != gene_ids)
             {
@@ -112,6 +114,7 @@ public:
                 exit(0);
             }
             mAllGeneIDs = gene_ids;
+            mAllGeneNames = gene_names;
         }
 
         second_group_gene_read_counts.resize(second_group_samples.size());
@@ -119,10 +122,11 @@ public:
         { 
             string filename = second_group_samples[i] + sample_suffix;
             vector<string> gene_ids;
+            vector<string> gene_names;
 
             vector<vector<int> > dummy;
             second_group_gene_read_counts[i].resize(0);
-            loadGeneReadCounts(filename, gene_ids, second_group_gene_read_counts[i], gene_length, mVerbosLevel);
+            loadGeneReadCounts(filename, gene_ids, gene_names, second_group_gene_read_counts[i], gene_length, mVerbosLevel);
 
             if (mAllGeneIDs != gene_ids)
             {
@@ -203,13 +207,14 @@ public:
         output << "# A gene with zero GFOLD value should never be considered as " << endl;
         output << "# differentially expressed. For a comprehensive description of " << endl;
         output << "# GFOLD, please refer to the manual." << endl;
-        output << "#GeneSymbol\tGFOLD("<< mSignificantCutoff << ")\tE-FDR\tlog2fdc";
+        output << "#GeneSymbol\tGeneName\tGFOLD("<< mSignificantCutoff << ")\tE-FDR\tlog2fdc";
 	    if (gene_length.size() > 0)
             output << "\t1stRPKM\t2ndRPKM";
         output << endl;
         for (size_t i = 0; i < mAllGeneIDs.size(); ++i)
         {
             output << mAllGeneIDs[i] << "\t";
+            output << mAllGeneNames[i] << "\t";
             output << gfold_value[i] << "\t";
             output << fdr[i] << "\t";
             output << logfdc[i];

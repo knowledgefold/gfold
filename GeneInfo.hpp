@@ -162,6 +162,7 @@ public:
     string mChr;
     char mStrand;
     string mGeneSymbol;
+    string mGeneName;
     string mTranscriptID;
     vector<Interval> mExons;
 
@@ -269,7 +270,7 @@ public:
         }
     }
 
-    void OnAnExon(const string& chr, char strand, const string& gene_id, const string& tran_id, int start, int end)
+    void OnAnExon(const string& chr, char strand, const string& gene_id, const string& gene_name, const string& tran_id, int start, int end)
     {
         if (mAllTranscripts.find(tran_id) == mAllTranscripts.end())
         {
@@ -279,6 +280,7 @@ public:
                 a_gene.mChr += strand;
             a_gene.mStrand = strand;
             a_gene.mGeneSymbol = gene_id;
+            a_gene.mGeneName = gene_name;
             a_gene.mTranscriptID = tran_id;
             mAllTranscripts[tran_id] = a_gene;
         }
@@ -307,6 +309,7 @@ public:
                 new_gene.mChr = a_gene.mChr;
                 new_gene.mStrand = a_gene.mStrand;
                 new_gene.mGeneSymbol = a_gene.mGeneSymbol;
+                new_gene.mGeneName = a_gene.mGeneName;
                 new_gene.mTranscriptID = a_gene.mTranscriptID;
                 mAllGenes[a_gene.mGeneSymbol] = new_gene;
             }
@@ -772,6 +775,7 @@ public:
         typedef map<string, int> str2int_t;
         str2int_t gene_cnt;
         str2int_t gene_length;
+        map<string, string> symble2name;
 
         // Note that no need to collect information from mAllJunctions if mbCountJunc is not set
         assert(!mbCountJunc);
@@ -785,6 +789,7 @@ public:
                 for_each_ele_in_group(gene_iter, list<Gene*>, genes)
                 {
                     string& gene_sym = (*gene_iter)->mGeneSymbol;
+                    symble2name[gene_sym] = (*gene_iter)->mGeneName;
                     if (gene_cnt.find(gene_sym) == gene_cnt.end())
                     {
                         gene_cnt[gene_sym] = cnt;
@@ -813,9 +818,10 @@ public:
 
         for_each_ele_in_group(iter, str2int_t, gene_cnt)
             output << iter->first << "\t" 
+                   << symble2name[iter->first] << "\t"
                    << iter->second << "\t" 
                    << gene_length[iter->first] << "\t" 
-	               << iter->second * 1000.0 / gene_length[iter->first] / seq_depth << endl;
+	               << iter->second * 1000.0 / gene_length[iter->first] / seq_depth << endl; 
 
         output.close();
     }

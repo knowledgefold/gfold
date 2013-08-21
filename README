@@ -1,6 +1,10 @@
 Note that https://bitbucket.org/feeldead/gfold/ may have updated README file
 
 VERSIONS:
+V1.1.0. A new column for the gene name is added to the output if the gena name
+information is available in the annotation file. Therefore the output format
+is different from V1.0.9.
+
 V1.0.9. A bug in calculating RPKM for job 'diff' is corrected. This bug is
 caused by integer division of total read count over 1000000 where float
 division should be used. It would slightly overestimate the RPKM if the total
