@@ -1,7 +1,7 @@
 Note that https://bitbucket.org/feeldead/gfold/ may have updated README file
 
 VERSIONS:
-V1.1.0. A new column for the gene name is added to the output if the gena name
+V1.1.0. A new column for the gene name is added to the output if the gene name
 information is available in the annotation file. Therefore the output format
 is different from V1.0.9.
 
