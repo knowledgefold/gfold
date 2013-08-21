@@ -25,8 +25,8 @@
 #include "GFOLD.hpp"
 #include "Utility.hpp"
 
-#define VERSION "V1.0.9"
-#define DATE "Tue May  7 11:06:24 CST 2013"
+#define VERSION "V1.1.0"
+#define DATE "Wed Aug 21 09:56:14 CST 2013"
 
 
 using namespace std;
