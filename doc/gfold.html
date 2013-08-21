@@ -2,7 +2,7 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
-<title>GFOLD V1.0.9</title>
+<title>GFOLD V1.1.0</title>
 <link rel="stylesheet" href="gfold.css" type="text/css" />
 <meta http-equiv="content-type" content="text/html; charset=utf-8" />
 <link rev="made" href="mailto:_usbmuxd@tensix-slave.macports.org" />
@@ -12,7 +12,7 @@
 <table border="0" width="100%" cellspacing="0" cellpadding="3">
 <tr><td width="10%" class="block" align="left"> <img align=center src="gfold.png"></img> </td>
 <td class="block" valign="middle">
-<big><strong><span class="block">&nbsp;GFOLD V1.0.9</span></strong></big>
+<big><strong><span class="block">&nbsp;GFOLD V1.1.0</span></strong></big>
 </td></tr>
 </table>
 
@@ -298,7 +298,11 @@ has no difference. Default 'DESeq'.</p>
 <ol>
 <li><strong><a name="genesymbol" class="item"><strong>GeneSymbol</strong>:</a></strong>
 
-<p>GeneSymbol. The order of gene symbol is the same as that appearing in the read count file.</p>
+<p>For BED file, this is the 4'th column. For GPF file, this is the first column. For GTF format, this corresponds to 'gene_id' if it exists, 'NA' otherwise.</p>
+</li>
+<li><strong><a name="genename" class="item"><strong>GeneName</strong>:</a></strong>
+
+<p>For BED file, this is always 'NA'. For GPF file, this is the 12'th column. For GTF format, this corresponds to 'gene_name' if it exists, 'NA' otherwise.</p>
 </li>
 <li><strong><a name="read_count" class="item"><strong>Read Count</strong>:</a></strong>
 
@@ -321,7 +325,11 @@ has no difference. Default 'DESeq'.</p>
 <ol>
 <li><strong><a name="genesymbol2" class="item"><strong>#GeneSymbol</strong>:</a></strong>
 
-<p>Gene symbols. The order of gene symbol is the same as that appearing in the read count file.</p>
+<p>Gene symbols. The order of gene symbol is the same as what appearing in the read count file.</p>
+</li>
+<li><strong><a name="genename2" class="item"><strong>GeneName</strong>:</a></strong>
+
+<p>Gene name. The order of gene name is the same as what appearing in the read count file.</p>
 </li>
 <li><strong><a name="gfold" class="item"><strong>GFOLD</strong>:</a></strong>
 
@@ -373,7 +381,7 @@ Please refer to <strong>1stRPKM</strong> for more information.</p>
 <p>Jianxing Feng (<a href="mailto:jianxing.tongji@gmail.com">jianxing.tongji@gmail.com</a>)</p>
 <table border="0" width="100%" cellspacing="0" cellpadding="3">
 <tr><td class="block" valign="middle">
-<big><strong><span class="block">&nbsp;GFOLD V1.0.9</span></strong></big>
+<big><strong><span class="block">&nbsp;GFOLD V1.1.0</span></strong></big>
 </td></tr>
 </table>
 

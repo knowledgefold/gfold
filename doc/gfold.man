@@ -124,7 +124,7 @@
 .\" ========================================================================
 .\"
 .IX Title "GFOLD 1"
-.TH GFOLD 1 "2013-05-23" "perl v5.12.4" "User Contributed Perl Documentation"
+.TH GFOLD 1 "2013-08-21" "perl v5.12.4" "User Contributed Perl Documentation"
 .\" For nroff, turn off justification.  Always turn off hyphenation; it makes
 .\" way too many mistakes in technical documents.
 .if n .ad l
@@ -296,15 +296,18 @@ The output file contains 4 columns:
 .RS 3
 .IP "1. \fBGeneSymbol\fR:" 3
 .IX Item "1. GeneSymbol:"
-GeneSymbol. The order of gene symbol is the same as that appearing in the read count file.
-.IP "2. \fBRead Count\fR:" 3
-.IX Item "2. Read Count:"
+For \s-1BED\s0 file, this is the 4'th column. For \s-1GPF\s0 file, this is the first column. For \s-1GTF\s0 format, this corresponds to 'gene_id' if it exists, '\s-1NA\s0' otherwise.
+.IP "2. \fBGeneName\fR:" 3
+.IX Item "2. GeneName:"
+For \s-1BED\s0 file, this is always '\s-1NA\s0'. For \s-1GPF\s0 file, this is the 12'th column. For \s-1GTF\s0 format, this corresponds to 'gene_name' if it exists, '\s-1NA\s0' otherwise.
+.IP "3. \fBRead Count\fR:" 3
+.IX Item "3. Read Count:"
 The number of reads mapped to this gene.
-.IP "3. \fBGene exon length\fR:" 3
-.IX Item "3. Gene exon length:"
+.IP "4. \fBGene exon length\fR:" 3
+.IX Item "4. Gene exon length:"
 The length sum of all the exons of this gene.
-.IP "4. \fB\s-1RPKM\s0\fR:" 3
-.IX Item "4. RPKM:"
+.IP "5. \fB\s-1RPKM\s0\fR:" 3
+.IX Item "5. RPKM:"
 The expression level of this gene in \s-1RPKM\s0.
 .RE
 .RS 3
@@ -315,9 +318,12 @@ The output file contains 6 columns:
 .RS 3
 .IP "1. \fB#GeneSymbol\fR:" 3
 .IX Item "1. #GeneSymbol:"
-Gene symbols. The order of gene symbol is the same as that appearing in the read count file.
-.IP "2. \fB\s-1GFOLD\s0\fR:" 3
-.IX Item "2. GFOLD:"
+Gene symbols. The order of gene symbol is the same as what appearing in the read count file.
+.IP "2. \fBGeneName\fR:" 3
+.IX Item "2. GeneName:"
+Gene name. The order of gene name is the same as what appearing in the read count file.
+.IP "3. \fB\s-1GFOLD\s0\fR:" 3
+.IX Item "3. GFOLD:"
 \&\s-1GFOLD\s0 value for every gene. The \s-1GFOLD\s0 value could be considered as a reliable
 log2 fold change. It is positive/negative if the gene is up/down regulated. The
 main usefulness of \s-1GFOLD\s0 is to provide a biological meanlingful ranking of the
@@ -333,22 +339,22 @@ differentially down-regulated. Note that a gene with \s-1GFOLD\s0 value 0 should
 never be considered differentially expressed. However, it doesn't mean that all
 genes with non-negative \s-1GFOLD\s0 value are differentially expressed. For taking top
 differentially expressed genes, the user is responsible for selecting the cutoff.
-.IP "3. \fBE\-FDR\fR:" 3
-.IX Item "3. E-FDR:"
+.IP "4. \fBE\-FDR\fR:" 3
+.IX Item "4. E-FDR:"
 Empirical \s-1FDR\s0 based on replicates. It is always 1 when no replicates are available.
-.IP "4. \fBlog2fdc\fR:" 3
-.IX Item "4. log2fdc:"
+.IP "5. \fBlog2fdc\fR:" 3
+.IX Item "5. log2fdc:"
 log2 fold change. If no replicate is available, and \fB\-acc\fR is T, log2 fold change
 is based on read counts and normalization constants. Otherwise, log2 fold change is
 based on the sampled expression level from the posterior distribution.
-.IP "5. \fB1stRPKM\fR:" 3
-.IX Item "5. 1stRPKM:"
+.IP "6. \fB1stRPKM\fR:" 3
+.IX Item "6. 1stRPKM:"
 The \s-1RPKM\s0 for the first condition. It is available only if gene length is available. 
 If multiple replicates are available, the \s-1RPKM\s0 is calculated simply by summing over
 replicates. Because \s-1RPKM\s0 is acturally using sequencing depth as the normalization 
 constant, log2 fold change based on \s-1RPKM\s0 could be different from the log2fdc field.
-.IP "6. \fB2ndRPKM\fR:" 3
-.IX Item "6. 2ndRPKM:"
+.IP "7. \fB2ndRPKM\fR:" 3
+.IX Item "7. 2ndRPKM:"
 The \s-1RPKM\s0 for the second condition. It is available only if gene length is available.
 Please refer to \fB1stRPKM\fR for more information.
 .RE
