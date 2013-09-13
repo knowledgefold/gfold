@@ -216,8 +216,8 @@ void line2pure_data(const string& a_line, int sig_len, bool b_strand_specific, v
         // TODO: Find a best way to handle such cases.
         // This read is mapped partially to this segment
         // Omit it.
-        if (b_rs_positive && pos >= oneway_sig_cnt ||
-            !b_rs_positive && pos < sig_len - 1)
+        if ((b_rs_positive && pos >= oneway_sig_cnt) ||
+            (!b_rs_positive && pos < sig_len - 1))
         {
             ++skipped_cnt;
             continue;
@@ -433,6 +433,9 @@ void loadGeneReadCounts(string from_file, vector<string>& gene_sym, vector<strin
 
         vector<string> fields;
         split(line, '\t', fields);
+
+        if (fields.size() != 5)
+            die_input(from_file, line_cnt, "Read Count", fields.size(), 5);
 
         gene_sym.push_back(fields[0]);
         gene_name.push_back(fields[1]);

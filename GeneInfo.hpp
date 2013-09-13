@@ -45,7 +45,7 @@ public:
     int Length(){return mEnd - mStart;}
 
     bool operator<(const Interval &other) const {
-        return (mStart < other.mStart || mStart == other.mStart && mEnd < other.mEnd);
+        return (mStart < other.mStart || (mStart == other.mStart && mEnd < other.mEnd));
     }
 
     bool operator!=(const Interval &other) const {
