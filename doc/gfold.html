@@ -176,13 +176,15 @@ downloaded from UCSC is in GPF format. For job <strong>count</strong> only.</p>
 
 <dd>
 <p>The format of gene annotation file. Default GTF (Gene Transfer Format). For job
-<strong>count</strong> only. For BED format, only the first 6 columns will be used. For GPF
-(Gene Prediction Format), in short, from UCSC Table Browser, the 'knownGene'
-table with all fields is in GPF and the 'refGene' table without the first
-column is in GPF format. Note that for either 'knownGene' or 'refGene' table,
-the downloaded file would contain a header which should be removed before
-calling GFOLD. More specifically, a file in GPF format contains 12 columns
-separated by TABs (adapted from UCSC):</p>
+<strong>count</strong> only. For GTF format, in the last column, 'gene_id' and
+'transcript_id' are required. 'gene_name' and other IDs are optional.  For BED
+format, only the first 6 columns will be used. For GPF (Gene Prediction
+Format), in short, from UCSC Table Browser, the 'knownGene' table with all
+fields is in GPF and the 'refGene' table without the first column is in GPF
+format. Note that for either 'knownGene' or 'refGene' table, the downloaded
+file would contain a header which should be removed before calling GFOLD. More
+specifically, a file in GPF format contains 12 columns separated by TABs
+(adapted from UCSC):</p>
 <TABLE BORDER="1">
 <TR><TD>name      </TD>      <TD> Name of gene</TD></TR>
 <TR><TD>chrom     </TD>      <TD> Reference sequence chromosome or scaffold</TD></TR>
