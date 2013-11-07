@@ -124,7 +124,7 @@
 .\" ========================================================================
 .\"
 .IX Title "GFOLD 1"
-.TH GFOLD 1 "2013-10-16" "perl v5.12.4" "User Contributed Perl Documentation"
+.TH GFOLD 1 "2013-10-17" "perl v5.12.4" "User Contributed Perl Documentation"
 .\" For nroff, turn off justification.  Always turn off hyphenation; it makes
 .\" way too many mistakes in technical documents.
 .if n .ad l
@@ -222,14 +222,14 @@ downloaded from \s-1UCSC\s0 is in \s-1GPF\s0 format. For job \fBcount\fR only.
 .IX Item "-annf <GTF/GPF/BED>"
 The format of gene annotation file. Default \s-1GTF\s0 (Gene Transfer Format). For job
 \&\fBcount\fR only. For \s-1GTF\s0 format, in the last column, 'gene_id' and
-\&'transcript_id' are required. 'gene_name' and other IDs are optional.  For \s-1BED\s0
-format, only the first 6 columns will be used. For \s-1GPF\s0 (Gene Prediction
-Format), in short, from \s-1UCSC\s0 Table Browser, the 'knownGene' table with all
-fields is in \s-1GPF\s0 and the 'refGene' table without the first column is in \s-1GPF\s0
-format. Note that for either 'knownGene' or 'refGene' table, the downloaded
-file would contain a header which should be removed before calling \s-1GFOLD\s0. More
-specifically, a file in \s-1GPF\s0 format contains 12 columns separated by TABs
-(adapted from \s-1UCSC\s0):
+\&'transcript_id' are required. 'gene_name' and other IDs are optional. For \s-1BED\s0
+format, please provide format which contains 6 columns with the \s-1ID\s0 at 4'th
+column.  For \s-1GPF\s0 (Gene Prediction Format), in short, from \s-1UCSC\s0 Table Browser,
+the 'knownGene' table with all fields is in \s-1GPF\s0 and the 'refGene' table without
+the first column is in \s-1GPF\s0 format. Note that for either 'knownGene' or
+\&'refGene' table, the downloaded file would contain a header which should be
+removed before calling \s-1GFOLD\s0. More specifically, a file in \s-1GPF\s0 format contains
+12 columns separated by TABs (adapted from \s-1UCSC\s0):
 .IP "\fB\-tag\fR <file>" 3
 .IX Item "-tag <file>"
 Short reads in \s-1SAM\s0 format. 'stdin' stands for standard input stream. For job \fBcount\fR only.
