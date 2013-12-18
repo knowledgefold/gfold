@@ -25,8 +25,8 @@
 #include "GFOLD.hpp"
 #include "Utility.hpp"
 
-#define VERSION "V1.1.0"
-#define DATE "Wed Aug 21 09:56:14 CST 2013"
+#define VERSION "V1.1.1"
+#define DATE "Wed Dec 18 13:18:53 CST 2013"
 
 
 using namespace std;
@@ -84,14 +84,13 @@ main(int argc, char* argv[])
 
     string job = "";
 
-    // For job 'preprocess'
     string ref_seq_file = "";
     string gene_annotation = "";
     string gene_annotation_format = "GTF";
     string short_reads_file = ""; 
     string short_reads_format = "SAM"; 
+    string genedesc = "";
 
-    // For job 'estimate'
     int strand_specific_code = 0;
     string output_file = "";
     string sample_suffix = "";
@@ -129,6 +128,8 @@ main(int argc, char* argv[])
             short_reads_file = argv[++i];
         else if (strcmp(argv[i], "-tagf") == 0)
             short_reads_format = argv[++i];
+        else if (strcmp(argv[i], "-d") == 0)
+            genedesc = argv[++i];
         else if (strcmp(argv[i], "-o") == 0)
             output_file = argv[++i];
         else if (strcmp(argv[i], "-suf") == 0)
@@ -218,7 +219,7 @@ main(int argc, char* argv[])
         }
 
         GFOLD gfold(VERSION, verbos_level, normal_method, burn_in_count, sampled_count, significant_cutoff, random_sampled_pairs, b_accurate);
-        gfold.CalculateAll(first_group_samples, second_group_samples, sample_suffix, output_file);
+        gfold.CalculateAll(first_group_samples, second_group_samples, sample_suffix, genedesc, output_file, output_file + ".ext");
     }
     cerr << "Job " << job << " is DONE!" << endl;
 

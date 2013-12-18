@@ -225,7 +225,8 @@ sequencing depth and slower, F stands for MCMC.  Default T. For job <strong>diff
 <dt><strong><a name="o_file" class="item"><strong>-o</strong> &lt;file&gt;</a></strong></dt>
 
 <dd>
-<p>The file for output for all jobs.</p>
+<p>The file for output for all jobs. For job <strong>diff</strong>, two output files will be generated.
+The first is &lt;file&gt; and the second is &lt;file&gt;.ext</p>
 </dd>
 <dt><strong><a name="s1_file" class="item"><strong>-s1</strong> &lt;file&gt;</a></strong></dt>
 
@@ -242,6 +243,16 @@ names and have the same number of lines.</p>
 <dd>
 <p>The prefix for gene read count of the 2st group output by <strong>count</strong>. Multiple
 prefixes are separated by commas. For job <strong>diff</strong> only.</p>
+</dd>
+<dt><strong><a name="d_file" class="item"><strong>-d</strong> &lt;file&gt;</a></strong></dt>
+
+<dd>
+<p>Gene description file. The first two columns of the file will be used. The first
+column should be gene descriptions; The second column should be gene IDs, e.g. 
+the first column of the output of <strong>Count</strong>. The gene description file can be
+downloaded from: <a href="http://uswest.ensembl.org/biomart/martview/3e5a3ce70eea4f8d0061a0eb03ef11ad">http://uswest.ensembl.org/biomart/martview/3e5a3ce70eea4f8d0061a0eb03ef11ad</a> .
+Please select the correct ID type during downloading such that the IDs match
+the gene IDs appearing in <strong>-ann</strong></p>
 </dd>
 <dt><strong><a name="suf_string" class="item"><strong>-suf</strong> &lt;string&gt;</a></strong></dt>
 
@@ -324,7 +335,7 @@ has no difference. Default 'DESeq'.</p>
 <dt><strong><a name="for_job_diff" class="item">For JOB <strong>diff</strong>:</a></strong></dt>
 
 <dd>
-<p>The output file contains 6 columns:</p>
+<p>The first output file contains 7 columns:</p>
 <ol>
 <li><strong><a name="genesymbol2" class="item"><strong>#GeneSymbol</strong>:</a></strong>
 
@@ -373,6 +384,23 @@ constant, log2 fold change based on RPKM could be different from the log2fdc fie
 
 <p>The RPKM for the second condition. It is available only if gene length is available.
 Please refer to <strong>1stRPKM</strong> for more information.</p>
+</li>
+</ol>
+<p>The second output file (.ext) contains the normalized read counts</p>
+<ol>
+<li><strong><a name="genesymbol3" class="item"><strong>#GeneSymbol</strong>:</a></strong>
+
+<p>Gene symbols. The order of gene symbol is the same as what appearing in the read count file.</p>
+</li>
+<li><strong><a name="normalized_read_counts" class="item"><strong>Normalized Read Counts</strong>:</a></strong>
+
+<p>Multiple columns (the same number of input samples) contains the read count normalized 
+by the calculated normalization constants. The are only muturally comparable and the absolute 
+value is meaningless.</p>
+</li>
+<li><strong><a name="gene_description" class="item"><strong>Gene Description</strong>:</a></strong>
+
+<p>The last column contains the associated gene description if the description file <strong>-d</strong> is provided.</p>
 </li>
 </ol>
 </dd>

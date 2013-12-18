@@ -7,6 +7,10 @@ If you cannot download from bitbucket, please try the following link:
 http://compbio.tongji.edu.cn/~fengjx/GFOLD/download.html
 
 VERSIONS:
+V1.1.1. A new output file for job 'diff' is added. In this output, normalized
+read counts are calculated. If a new parameter '-d' for gene description is 
+provided, this file will also associate gene to gene description.
+
 V1.1.0. A new column for the gene name is added to the output if the gene name
 information is available in the annotation file. Therefore the output format
 is different from V1.0.9.

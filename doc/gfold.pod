@@ -182,7 +182,8 @@ sequencing depth and slower, F stands for MCMC.  Default T. For job B<diff> only
 
 =item B<-o> <file>
 
-The file for output for all jobs. 
+The file for output for all jobs. For job B<diff>, two output files will be generated.
+The first is <file> and the second is <file>.ext
 
 =item B<-s1> <file>
 
@@ -197,6 +198,15 @@ names and have the same number of lines.
 
 The prefix for gene read count of the 2st group output by B<count>. Multiple
 prefixes are separated by commas. For job B<diff> only.
+
+=item B<-d> <file>
+
+Gene description file. The first two columns of the file will be used. The first
+column should be gene descriptions; The second column should be gene IDs, e.g. 
+the first column of the output of B<Count>. The gene description file can be
+downloaded from: http://uswest.ensembl.org/biomart/martview/3e5a3ce70eea4f8d0061a0eb03ef11ad .
+Please select the correct ID type during downloading such that the IDs match
+the gene IDs appearing in B<-ann>
 
 =item B<-suf> <string>
 
@@ -273,7 +283,7 @@ The expression level of this gene in RPKM.
 
 =item For JOB B<diff>:
 
-The output file contains 6 columns:
+The first output file contains 7 columns:
 
 =over 3
 
@@ -324,6 +334,26 @@ constant, log2 fold change based on RPKM could be different from the log2fdc fie
 
 The RPKM for the second condition. It is available only if gene length is available.
 Please refer to B<1stRPKM> for more information.
+
+=back
+
+The second output file (.ext) contains the normalized read counts
+
+=over 3
+
+=item  1. B<#GeneSymbol>:
+
+Gene symbols. The order of gene symbol is the same as what appearing in the read count file.
+
+=item  2. B<Normalized Read Counts>:
+
+Multiple columns (the same number of input samples) contains the read count normalized 
+by the calculated normalization constants. The are only muturally comparable and the absolute 
+value is meaningless.
+
+=item  3. B<Gene Description>:
+
+The last column contains the associated gene description if the description file B<-d> is provided.
 
 =back
 
