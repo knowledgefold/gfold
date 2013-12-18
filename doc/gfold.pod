@@ -204,7 +204,7 @@ prefixes are separated by commas. For job B<diff> only.
 Gene description file. The first two columns of the file will be used. The first
 column should be gene descriptions; The second column should be gene IDs, e.g. 
 the first column of the output of B<Count>. The gene description file can be
-downloaded from: http://uswest.ensembl.org/biomart/martview/3e5a3ce70eea4f8d0061a0eb03ef11ad .
+downloaded from: http://uswest.ensembl.org/biomart/martview .
 Please select the correct ID type during downloading such that the IDs match
 the gene IDs appearing in B<-ann>
 
