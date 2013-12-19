@@ -337,7 +337,7 @@ Please refer to B<1stRPKM> for more information.
 
 =back
 
-The second output file (.ext) contains the normalized read counts
+The second output file (.ext) contains the normalized read counts and gene description
 
 =over 3
 
@@ -348,8 +348,8 @@ Gene symbols. The order of gene symbol is the same as what appearing in the read
 =item  2. B<Normalized Read Counts>:
 
 Multiple columns (the same number of input samples) contains the read count normalized 
-by the calculated normalization constants. The are only muturally comparable and the absolute 
-value is meaningless.
+by the calculated normalization constants. They are only muturally comparable and the absolute 
+values are meaningless.
 
 =item  3. B<Gene Description>:
 
