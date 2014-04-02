@@ -154,7 +154,7 @@ public:
         normalize_constants_first.resize(mFirstGroupCnt);
         normalize_constants_second.resize(normalize_constants.size() - mFirstGroupCnt);
         first_total_cnts.resize(mFirstGroupCnt);
-        second_total_cnts = first_total_cnts;
+        second_total_cnts.resize(normalize_constants.size() - mFirstGroupCnt);
         for (size_t i = 0; i < normalize_constants.size(); ++i)
             if (i < mFirstGroupCnt)
             {
