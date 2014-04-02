@@ -124,7 +124,7 @@
 .\" ========================================================================
 .\"
 .IX Title "GFOLD 1"
-.TH GFOLD 1 "2013-12-19" "perl v5.12.4" "User Contributed Perl Documentation"
+.TH GFOLD 1 "2014-03-11" "perl v5.12.4" "User Contributed Perl Documentation"
 .\" For nroff, turn off justification.  Always turn off hyphenation; it makes
 .\" way too many mistakes in technical documents.
 .if n .ad l
