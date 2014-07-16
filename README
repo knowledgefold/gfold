@@ -7,6 +7,9 @@ If you cannot download from bitbucket, please try the following link:
 http://compbio.tongji.edu.cn/~fengjx/GFOLD/download.html
 
 VERSIONS:
+V1.1.3. If annotation files contain comments (startiing with #), skip them. Previously
+the program would crash.
+
 V1.1.2. Fixed a bug that when condition two contains multiple samples, RPKM for
 condition two in .diff file is wrong.
 

@@ -521,6 +521,9 @@ void scanGPF(string from_file, GeneInfo& gene_info, int verbos_level = 0)
 
     while (getline(infile, line))
     {
+        if (line[0] == '#')
+            continue;
+
         ++line_cnt;
 
         vector<string> fields;
@@ -575,6 +578,9 @@ void scanGTF(string from_file, GeneInfo& gene_info, int verbos_level = 0)
 
     while (getline(infile, line))
     {
+        if (line[0] == '#')
+            continue;
+
         ++line_cnt;
 
         vector<string> fields;
@@ -638,6 +644,9 @@ void scanAnnotBED(string from_file, GeneInfo& gene_info, int verbos_level = 0)
 
     while (getline(infile, line))
     {
+        if (line[0] == '#')
+            continue;
+
         ++line_cnt;
 
         vector<string> fields;
@@ -757,9 +766,10 @@ void scanSAM(string from_file, GeneInfo& gene_info, int verbos_level = 0)
 
     while (getline(*p_input, line))
     {
-        ++line_cnt;
         if (line[0] == '@')
             continue;
+
+        ++line_cnt;
 
         vector<string> fields;
         split(line, '\t', fields);
