@@ -1,4 +1,4 @@
-VERSION = V1.1.3
+VERSION = V1.1.4
 package=gfold.$(VERSION)
 packagename=gfold.$(VERSION).tar.gz 
 

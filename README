@@ -7,6 +7,10 @@ If you cannot download from bitbucket, please try the following link:
 http://compbio.tongji.edu.cn/~fengjx/GFOLD/download.html
 
 VERSIONS:
+V1.1.4. When '-norm Count' is specified, the code wrongly treats 'Count' as the
+specified normalization countants. This bug is corrected. Thanks Crystal Chaw 
+for digging out this bug.
+
 V1.1.3. If annotation files contain comments (startiing with #), skip them. Previously
 the program would crash.
 
