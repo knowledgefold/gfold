@@ -527,7 +527,7 @@ private:
                 normalize_constants[i] = nor / denor;
             }
         }
-        else{
+        else if (mNormalizationMethod != "Count") {
             // The constants are specified explicitly.
             vector<string> normconst;
             split(mNormalizationMethod, ',', normconst);
