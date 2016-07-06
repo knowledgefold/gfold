@@ -2,189 +2,147 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
-<title>GFOLD V1.1.2</title>
+<title>GFOLD V1.1.4</title>
 <link rel="stylesheet" href="gfold.css" type="text/css" />
 <meta http-equiv="content-type" content="text/html; charset=utf-8" />
-<link rev="made" href="mailto:_usbmuxd@tensix-slave.macports.org" />
+<link rev="made" href="mailto:_trustevaluationagent@osx228.apple.com" />
 </head>
 
 <body>
 <table border="0" width="100%" cellspacing="0" cellpadding="3">
 <tr><td width="10%" class="block" align="left"> <img align=center src="gfold.png"></img> </td>
 <td class="block" valign="middle">
-<big><strong><span class="block">&nbsp;GFOLD V1.1.2</span></strong></big>
+<big><strong><span class="_podblock_">&nbsp;GFOLD V1.1.4</span></strong></big>
 </td></tr>
 </table>
 
 
-<!-- INDEX BEGIN -->
-<div name="index">
-<p><a name="__index__"></a></p>
-<!--
 
-<ul>
+<h1 id="NAME">NAME</h1>
 
-	<li><a href="#name">NAME</a></li>
-	<li><a href="#citation">CITATION</a></li>
-	<li><a href="#synopsis">SYNOPSIS</a></li>
-	<li><a href="#examples">EXAMPLES</a></li>
-	<ul>
-
-		<li><a href="#example_1__count_reads_and_rank_genes">Example 1: Count reads and rank genes</a></li>
-		<li><a href="#example_2__count_reads">Example 2: Count reads</a></li>
-		<li><a href="#example_3__identify_differentially_expressed_genes_without_replicates">Example 3: Identify differentially expressed genes without replicates</a></li>
-		<li><a href="#example_4__identify_differentially_expressed_genes_with_replicates">Example 4: Identify differentially expressed genes with replicates</a></li>
-		<li><a href="#example_5__identify_differentially_expressed_genes_with_replicates_only_in_one_condition">Example 5: Identify differentially expressed genes with replicates only in one condition</a></li>
-	</ul>
-
-	<li><a href="#jobs">JOBS</a></li>
-	<li><a href="#options">OPTIONS</a></li>
-	<li><a href="#output_format">OUTPUT FORMAT</a></li>
-	<li><a href="#author">AUTHOR</a></li>
-</ul>
-
--->
-
-
-</div>
-<!-- INDEX END -->
-
-<p>
-</p>
-<hr />
-<h1><a name="name">NAME</a></h1>
 <p>gfold - Generalized fold change for ranking differentially expressed genes from RNA-seq data.</p>
-<p>GFOLD is especially useful when no replicate is available. GFOLD generalizes
-the fold change by considering the posterior distribution of log fold change,
-such that each gene is assigned a reliable fold change. It overcomes the
-shortcoming of p-value that measures the significance of whether a gene is
-differentially expressed under different conditions instead of measuring
-relative expression changes, which are more interesting in many studies. It
-also overcomes the shortcoming of fold change that suffers from the fact that
-the fold change of genes with low read count are not so reliable as that of
-genes with high read count, even these two genes show the same fold change.</p>
-<p>
-</p>
-<hr />
-<h1><a name="citation">CITATION</a></h1>
-<p>Feng J, Meyer CA, Wang Q, Liu JS, Liu XS, Zhang Y. GFOLD: a generalized fold change for ranking differentially expressed genes from RNA-seq data. <strong>Bioinformatics</strong> 2012</p>
-<p>
-</p>
-<hr />
-<h1><a name="synopsis">SYNOPSIS</a></h1>
-<p><strong>gfold</strong> <strong>JOBS</strong> <strong>OPTIONS</strong></p>
-<p>
-</p>
-<hr />
-<h1><a name="examples">EXAMPLES</a></h1>
-<p>
-</p>
-<h2><a name="example_1__count_reads_and_rank_genes">Example 1: Count reads and rank genes</a></h2>
-<p>In the following example, hg19Ref.gtf is the ucsc knownGene table for hg19;
-sample1.sam and sample2.sam are the mapped reads in SAM format.</p>
+
+<p>GFOLD is especially useful when no replicate is available. GFOLD generalizes the fold change by considering the posterior distribution of log fold change, such that each gene is assigned a reliable fold change. It overcomes the shortcoming of p-value that measures the significance of whether a gene is differentially expressed under different conditions instead of measuring relative expression changes, which are more interesting in many studies. It also overcomes the shortcoming of fold change that suffers from the fact that the fold change of genes with low read count are not so reliable as that of genes with high read count, even these two genes show the same fold change.</p>
+
+<h1 id="CITATION">CITATION</h1>
+
+<p>Feng J, Meyer CA, Wang Q, Liu JS, Liu XS, Zhang Y. GFOLD: a generalized fold change for ranking differentially expressed genes from RNA-seq data. <b>Bioinformatics</b> 2012</p>
+
+<h1 id="SYNOPSIS">SYNOPSIS</h1>
+
+<p><b>gfold</b> <b>JOBS</b> <b>OPTIONS</b></p>
+
+<h1 id="EXAMPLES">EXAMPLES</h1>
+
+<h2 id="Example-1:-Count-reads-and-rank-genes">Example 1: Count reads and rank genes</h2>
+
+<p>In the following example, hg19Ref.gtf is the ucsc knownGene table for hg19; sample1.sam and sample2.sam are the mapped reads in SAM format.</p>
+
 <dl>
-<dt><strong><a name="gfold_count_ann_hg19ref_gtf_tag_sample1_sam_o_sample1_read_cnt" class="item"><strong>gfold count -ann hg19Ref.gtf -tag sample1.sam -o sample1.read_cnt</strong></a></strong></dt>
 
-<dt><strong><a name="gfold_count_ann_hg19ref_gtf_tag_sample2_sam_o_sample2_read_cnt" class="item"><strong>gfold count -ann hg19Ref.gtf -tag sample2.sam -o sample2.read_cnt</strong></a></strong></dt>
+<dt id="gfold-count--ann-hg19Ref.gtf--tag-sample1.sam--o-sample1.read_cnt"><b>gfold count -ann hg19Ref.gtf -tag sample1.sam -o sample1.read_cnt</b></dt>
+<dd>
 
-<dt><strong><a name="gfold_diff_s1_sample1_s2_sample2_suf_read_cnt_o_sample1vssample2_diff" class="item"><strong>gfold diff -s1 sample1 -s2 sample2 -suf .read_cnt -o sample1VSsample2.diff </strong></a></strong></dt>
+</dd>
+<dt id="gfold-count--ann-hg19Ref.gtf--tag-sample2.sam--o-sample2.read_cnt"><b>gfold count -ann hg19Ref.gtf -tag sample2.sam -o sample2.read_cnt</b></dt>
+<dd>
 
+</dd>
+<dt id="gfold-diff--s1-sample1--s2-sample2--suf-.read_cnt--o-sample1VSsample2.diff"><b>gfold diff -s1 sample1 -s2 sample2 -suf .read_cnt -o sample1VSsample2.diff </b></dt>
+<dd>
+
+</dd>
 </dl>
-<p>
-</p>
-<h2><a name="example_2__count_reads">Example 2: Count reads</a></h2>
+
+<h2 id="Example-2:-Count-reads">Example 2: Count reads</h2>
+
 <p>This example utilizes samtools to produce mapped reads in SAM format from BAM format.</p>
-<dl>
-<dt><strong><a name="samtools_view_sample1_bam_gfold_count_ann_hg19ref_gtf_tag_stdin_o_sample1_read_cnt" class="item"><strong>samtools view sample1.bam | gfold count -ann hg19Ref.gtf -tag stdin -o sample1.read_cnt</strong></a></strong></dt>
 
-</dl>
-<p>
-</p>
-<h2><a name="example_3__identify_differentially_expressed_genes_without_replicates">Example 3: Identify differentially expressed genes without replicates</a></h2>
-<p>Suppose there are two samples: sample1 and sample2 with corresponding read
-count file being sample1.read_cnt sample2.read_cnt. This example finds
-differentially expressed genes using default parameters on two samples</p>
 <dl>
-<dt><strong><a name="gfold_diff_s1_sample1_s2_sample2_suf_read_cnt_o_sample1vssample2_diff2" class="item"><strong>gfold diff -s1 sample1 -s2 sample2 -suf .read_cnt -o sample1VSsample2.diff</strong></a></strong></dt>
 
+<dt id="samtools-view-sample1.bam-gfold-count--ann-hg19Ref.gtf--tag-stdin--o-sample1.read_cnt"><b>samtools view sample1.bam | gfold count -ann hg19Ref.gtf -tag stdin -o sample1.read_cnt</b></dt>
+<dd>
+
+</dd>
 </dl>
-<p>
-</p>
-<h2><a name="example_4__identify_differentially_expressed_genes_with_replicates">Example 4: Identify differentially expressed genes with replicates</a></h2>
+
+<h2 id="Example-3:-Identify-differentially-expressed-genes-without-replicates">Example 3: Identify differentially expressed genes without replicates</h2>
+
+<p>Suppose there are two samples: sample1 and sample2 with corresponding read count file being sample1.read_cnt sample2.read_cnt. This example finds differentially expressed genes using default parameters on two samples</p>
+
+<dl>
+
+<dt id="gfold-diff--s1-sample1--s2-sample2--suf-.read_cnt--o-sample1VSsample2.diff1"><b>gfold diff -s1 sample1 -s2 sample2 -suf .read_cnt -o sample1VSsample2.diff</b></dt>
+<dd>
+
+</dd>
+</dl>
+
+<h2 id="Example-4:-Identify-differentially-expressed-genes-with-replicates">Example 4: Identify differentially expressed genes with replicates</h2>
+
 <p>This example finds differentially expressed genes using default parameters on two group of samples.</p>
-<dl>
-<dt><strong><a name="gfold_diff_s1_sample1_sample2_sample3_s2_sample4_sample5_sample6_suf_read_cnt_o_123vs456_diff" class="item"><strong>gfold diff -s1 sample1,sample2,sample3 -s2 sample4,sample5,sample6 -suf .read_cnt -o 123VS456.diff</strong></a></strong></dt>
 
-</dl>
-<p>
-</p>
-<h2><a name="example_5__identify_differentially_expressed_genes_with_replicates_only_in_one_condition">Example 5: Identify differentially expressed genes with replicates only in one condition</a></h2>
-<p>This example finds differentially expressed genes using default parameters on two group of samples.
-Only the first group contains replicates. In this case, the variance estimated based on the first
-group will be used as the variance of the second group.</p>
 <dl>
-<dt><strong><a name="gfold_diff_s1_sample1_sample2_s2_sample3_suf_read_cnt_o_12vs3_diff" class="item"><strong>gfold diff -s1 sample1,sample2 -s2 sample3 -suf .read_cnt -o 12VS3.diff</strong></a></strong></dt>
 
-</dl>
-<p>
-</p>
-<hr />
-<h1><a name="jobs">JOBS</a></h1>
-<dl>
-<dt><strong><a name="h" class="item"><strong>-h</strong></a></strong></dt>
-
+<dt id="gfold-diff--s1-sample1-sample2-sample3--s2-sample4-sample5-sample6--suf-.read_cnt--o-123VS456.diff"><b>gfold diff -s1 sample1,sample2,sample3 -s2 sample4,sample5,sample6 -suf .read_cnt -o 123VS456.diff</b></dt>
 <dd>
+
+</dd>
+</dl>
+
+<h2 id="Example-5:-Identify-differentially-expressed-genes-with-replicates-only-in-one-condition">Example 5: Identify differentially expressed genes with replicates only in one condition</h2>
+
+<p>This example finds differentially expressed genes using default parameters on two group of samples. Only the first group contains replicates. In this case, the variance estimated based on the first group will be used as the variance of the second group.</p>
+
+<dl>
+
+<dt id="gfold-diff--s1-sample1-sample2--s2-sample3--suf-.read_cnt--o-12VS3.diff"><b>gfold diff -s1 sample1,sample2 -s2 sample3 -suf .read_cnt -o 12VS3.diff</b></dt>
+<dd>
+
+</dd>
+</dl>
+
+<h1 id="JOBS">JOBS</h1>
+
+<dl>
+
+<dt id="h"><b>-h</b></dt>
+<dd>
+
 <p>Print help information</p>
-</dd>
-<dt><strong><a name="count" class="item"><strong>count</strong></a></strong></dt>
 
-<dd>
-<p>Given the gene annotation in GTF/GPF/BED format and mapped short reads in SAM/BED
-format, count the number of reads mapped to each gene. Because of possible overlapping 
-of multiple genes, a read could be mapped to the overlaped region of multiple genes.
-In this case, a read is counted multiple times with each time for each gene. Furthermore,
-if a gene is on multiple chromosomes or different strands of the same chromosome, only exons
-on one strand of one chromosome (the one appear first in the annotation file) will be 
-assigned to this gene. Exons not on this strand of the chromosome will be discarded.</p>
 </dd>
-<dt><strong><a name="diff" class="item"><strong>diff</strong></a></strong></dt>
-
+<dt id="count"><b>count</b></dt>
 <dd>
-<p>For each gene, calculate GFOLD value and other statistics. <strong>diff</strong> accepts the output of
-<strong>count</strong> as the input. Please refer to the output format of <strong>count</strong> for more
-information about the input format. If you are not satisfied with the strategy
-adopted by <strong>count</strong>, you can generate gene read counts by yourself. In the input for <strong>diff</strong>
-'GeneSymbol' and 'Read Count' are critical. If you fake 'Gene exon length', the RPKM calculated
-will not be valid. You can fake other columns to make gfold run. Further more
-the order of gene names should be the same for different samples. The third column of the output of <strong>count</strong> 
-(gene length) only influences the RPKM in the output of <strong>diff</strong>. If it is missing, RPKM 
-will not be generated by <strong>diff</strong>. <strong>diff</strong> does not use the forth column of the output of <strong>count</strong>.</p>
+
+<p>Given the gene annotation in GTF/GPF/BED format and mapped short reads in SAM/BED format, count the number of reads mapped to each gene. Because of possible overlapping of multiple genes, a read could be mapped to the overlaped region of multiple genes. In this case, a read is counted multiple times with each time for each gene. Furthermore, if a gene is on multiple chromosomes or different strands of the same chromosome, only exons on one strand of one chromosome (the one appear first in the annotation file) will be assigned to this gene. Exons not on this strand of the chromosome will be discarded.</p>
+
+</dd>
+<dt id="diff"><b>diff</b></dt>
+<dd>
+
+<p>For each gene, calculate GFOLD value and other statistics. <b>diff</b> accepts the output of <b>count</b> as the input. Please refer to the output format of <b>count</b> for more information about the input format. If you are not satisfied with the strategy adopted by <b>count</b>, you can generate gene read counts by yourself. In the input for <b>diff</b> &#39;GeneSymbol&#39; and &#39;Read Count&#39; are critical. If you fake &#39;Gene exon length&#39;, the RPKM calculated will not be valid. You can fake other columns to make gfold run. Further more the order of gene names should be the same for different samples. The 4th column of the output of <b>count</b> (gene length) only influences the RPKM in the output of <b>diff</b>. If it is missing, RPKM will not be generated by <b>diff</b>. <b>diff</b> does not use the 5th column of the output of <b>count</b>.</p>
+
 </dd>
 </dl>
-<p>
-</p>
-<hr />
-<h1><a name="options">OPTIONS</a></h1>
+
+<h1 id="OPTIONS">OPTIONS</h1>
+
 <dl>
-<dt><strong><a name="ann_file" class="item"><strong>-ann</strong> &lt;file&gt;</a></strong></dt>
 
+<dt id="ann-file"><b>-ann</b> &lt;file&gt;</dt>
 <dd>
-<p>Gene annotation file in GTF/GPF/BED format. Note that the knownGene table
-downloaded from UCSC is in GPF format. For job <strong>count</strong> only.</p>
+
+<p>Gene annotation file in GTF/GPF/BED format. Note that the knownGene table downloaded from UCSC is in GPF format. For job <b>count</b> only.</p>
+
 </dd>
-<dt><strong><a name="annf_gtf_gpf_bed" class="item"><strong>-annf</strong> &lt;GTF/GPF/BED&gt;</a></strong></dt>
-
+<dt id="annf-GTF-GPF-BED"><b>-annf</b> &lt;GTF/GPF/BED&gt;</dt>
 <dd>
-<p>The format of gene annotation file. Default GTF (Gene Transfer Format). For job
-<strong>count</strong> only. For GTF format, in the last column, 'gene_id' and
-'transcript_id' are required. 'gene_name' and other IDs are optional. For BED
-format, please provide format which contains 6 columns with the ID at 4'th
-column.  For GPF (Gene Prediction Format), in short, from UCSC Table Browser,
-the 'knownGene' table with all fields is in GPF and the 'refGene' table without
-the first column is in GPF format. Note that for either 'knownGene' or
-'refGene' table, the downloaded file would contain a header which should be
-removed before calling GFOLD. More specifically, a file in GPF format contains
-12 columns separated by TABs (adapted from UCSC):</p>
+
+<p>The format of gene annotation file. Default GTF (Gene Transfer Format). For job <b>count</b> only. For GTF format, in the last column, &#39;gene_id&#39; and &#39;transcript_id&#39; are required. &#39;gene_name&#39; and other IDs are optional. For BED format, please provide format which contains 6 columns with the ID at 4&#39;th column. For GPF (Gene Prediction Format), in short, from UCSC Table Browser, the &#39;knownGene&#39; table with all fields is in GPF and the &#39;refGene&#39; table without the first column is in GPF format. Note that for either &#39;knownGene&#39; or &#39;refGene&#39; table, the downloaded file would contain a header which should be removed before calling GFOLD. More specifically, a file in GPF format contains 12 columns separated by TABs (adapted from UCSC):</p>
+
+
+
 <TABLE BORDER="1">
 <TR><TD>name      </TD>      <TD> Name of gene</TD></TR>
 <TR><TD>chrom     </TD>      <TD> Reference sequence chromosome or scaffold</TD></TR>
@@ -198,224 +156,237 @@ removed before calling GFOLD. More specifically, a file in GPF format contains
 <TR><TD>exonEnds  </TD>      <TD> Exon end positions separated by commas</TD></TR>
 <TR><TD>proteinID </TD>      <TD> UniProt display ID for Known Genes, UniProt accession or RefSeq protein ID for UCSC Genes </TD></TR>
 <TR><TD>alignID   </TD>      <TD> Unique identifier for each (known gene, alignment position) pair</TD></TR>
-</TABLE></dd>
-<dt><strong><a name="tag_file" class="item"><strong>-tag</strong> &lt;file&gt;</a></strong></dt>
+</TABLE>
 
-<dd>
-<p>Short reads in SAM format. 'stdin' stands for standard input stream. For job <strong>count</strong> only.</p>
 </dd>
-<dt><strong><a name="tagf_sam_bed" class="item"><strong>-tagf</strong> &lt;SAM/BED&gt;</a></strong></dt>
-
+<dt id="tag-file"><b>-tag</b> &lt;file&gt;</dt>
 <dd>
-<p>The format of short reads. Default SAM. For job <strong>count</strong> only.</p>
+
+<p>Short reads in SAM format. &#39;stdin&#39; stands for standard input stream. For job <b>count</b> only.</p>
+
 </dd>
-<dt><strong><a name="s_t_f" class="item"><strong>-s</strong> &lt;T/F&gt;</a></strong></dt>
-
+<dt id="tagf-SAM-BED"><b>-tagf</b> &lt;SAM/BED&gt;</dt>
 <dd>
-<p>Whether is the sequencing data strand specific? T stands for strand specific.
-Default F. If you are not clear about this, using default parameter should be
-OK even for the strand specific case. For job <strong>count</strong> only.</p>
+
+<p>The format of short reads. Default SAM. For job <b>count</b> only.</p>
+
 </dd>
-<dt><strong><a name="acc_t_f" class="item"><strong>-acc</strong> &lt;T/F&gt;</a></strong></dt>
-
+<dt id="s-T-F"><b>-s</b> &lt;T/F&gt;</dt>
 <dd>
-<p>When no replicate is available, whether to use accurate method to calculate GFOLD value. T stands for accurate which depends on
-sequencing depth and slower, F stands for MCMC.  Default T. For job <strong>diff</strong> only.</p>
+
+<p>Whether is the sequencing data strand specific? T stands for strand specific. Default F. If you are not clear about this, using default parameter should be OK even for the strand specific case. For job <b>count</b> only.</p>
+
 </dd>
-<dt><strong><a name="o_file" class="item"><strong>-o</strong> &lt;file&gt;</a></strong></dt>
-
+<dt id="acc-T-F"><b>-acc</b> &lt;T/F&gt;</dt>
 <dd>
-<p>The file for output for all jobs. For job <strong>diff</strong>, two output files will be generated.
-The first is &lt;file&gt; and the second is &lt;file&gt;.ext</p>
+
+<p>When no replicate is available, whether to use accurate method to calculate GFOLD value. T stands for accurate which depends on sequencing depth and slower, F stands for MCMC. Default T. For job <b>diff</b> only.</p>
+
 </dd>
-<dt><strong><a name="s1_file" class="item"><strong>-s1</strong> &lt;file&gt;</a></strong></dt>
-
+<dt id="o-file"><b>-o</b> &lt;file&gt;</dt>
 <dd>
-<p>The prefix for gene read count of the 1st group output by <strong>count</strong>. Multiple
-prefixes are separated by commas. For job <strong>diff</strong> only. If you have gene read
-count generated by other ways instead of job <strong>count</strong>, make sure that the
-format are the same for all files. Each file contains two columns corresponding
-to gene names and read counts separated by a TAB. All files are sorted by gene
-names and have the same number of lines.</p>
+
+<p>The file for output for all jobs. For job <b>diff</b>, two output files will be generated. The first is &lt;file&gt; and the second is &lt;file&gt;.ext</p>
+
 </dd>
-<dt><strong><a name="s2_file" class="item"><strong>-s2</strong> &lt;file&gt;</a></strong></dt>
-
+<dt id="s1-file"><b>-s1</b> &lt;file&gt;</dt>
 <dd>
-<p>The prefix for gene read count of the 2st group output by <strong>count</strong>. Multiple
-prefixes are separated by commas. For job <strong>diff</strong> only.</p>
+
+<p>The prefix for gene read count of the 1st group output by <b>count</b>. Multiple prefixes are separated by commas. For job <b>diff</b> only. If you have gene read count generated by other ways instead of job <b>count</b>, make sure that the format are the same for all files. Each file contains two columns corresponding to gene names and read counts separated by a TAB. All files are sorted by gene names and have the same number of lines.</p>
+
 </dd>
-<dt><strong><a name="d_file" class="item"><strong>-d</strong> &lt;file&gt;</a></strong></dt>
-
+<dt id="s2-file"><b>-s2</b> &lt;file&gt;</dt>
 <dd>
-<p>Gene description file. The first two columns of the file will be used. The first
-column should be gene descriptions; The second column should be gene IDs, e.g. 
-the first column of the output of <strong>Count</strong>. The gene description file can be
-downloaded from: <a href="http://uswest.ensembl.org/biomart/martview">http://uswest.ensembl.org/biomart/martview</a> .
-Please select the correct ID type during downloading such that the IDs match
-the gene IDs appearing in <strong>-ann</strong></p>
+
+<p>The prefix for gene read count of the 2st group output by <b>count</b>. Multiple prefixes are separated by commas. For job <b>diff</b> only.</p>
+
 </dd>
-<dt><strong><a name="suf_string" class="item"><strong>-suf</strong> &lt;string&gt;</a></strong></dt>
-
+<dt id="d-file"><b>-d</b> &lt;file&gt;</dt>
 <dd>
-<p>The suffix for gene read count file specified by <strong>-s1</strong> and <strong>-s2</strong>. For job <strong>diff</strong> only.</p>
+
+<p>Gene description file. The first two columns of the file will be used. The first column should be gene descriptions; The second column should be gene IDs, e.g. the first column of the output of <b>Count</b>. The gene description file can be downloaded from: http://uswest.ensembl.org/biomart/martview . Please select the correct ID type during downloading such that the IDs match the gene IDs appearing in <b>-ann</b></p>
+
 </dd>
-<dt><strong><a name="sc_num" class="item"><strong>-sc</strong> &lt;num&gt;</a></strong></dt>
-
+<dt id="suf-string"><b>-suf</b> &lt;string&gt;</dt>
 <dd>
-<p>The significant cutoff for fold change. Default 0.01. For job <strong>diff</strong> only.</p>
+
+<p>The suffix for gene read count file specified by <b>-s1</b> and <b>-s2</b>. For job <b>diff</b> only.</p>
+
 </dd>
-<dt><strong><a name="bi_num" class="item"><strong>-bi</strong> &lt;num&gt;</a></strong></dt>
-
+<dt id="sc-num"><b>-sc</b> &lt;num&gt;</dt>
 <dd>
-<p>For MCMC, the iterations for burn-in phase. Default 1000. For job <strong>diff</strong> only.</p>
+
+<p>The significant cutoff for fold change. Default 0.01. For job <b>diff</b> only.</p>
+
 </dd>
-<dt><strong><a name="si_num" class="item"><strong>-si</strong> &lt;num&gt;</a></strong></dt>
-
+<dt id="bi-num"><b>-bi</b> &lt;num&gt;</dt>
 <dd>
-<p>For MCMC, the iterations for sampling phase. Default 1000. For job <strong>diff</strong> only.</p>
+
+<p>For MCMC, the iterations for burn-in phase. Default 1000. For job <b>diff</b> only.</p>
+
 </dd>
-<dt><strong><a name="r_num" class="item"><strong>-r</strong> &lt;num&gt;</a></strong></dt>
-
+<dt id="si-num"><b>-si</b> &lt;num&gt;</dt>
 <dd>
-<p>The maximum number of selected pairs for calculating empirical FDR. Default 20. For job <strong>diff</strong> only.</p>
+
+<p>For MCMC, the iterations for sampling phase. Default 1000. For job <b>diff</b> only.</p>
+
 </dd>
-<dt><strong><a name="v_num" class="item"><strong>-v</strong> &lt;num&gt;</a></strong></dt>
-
+<dt id="r-num"><b>-r</b> &lt;num&gt;</dt>
 <dd>
-<p>Verbos level. A larger value gives more information of the running process.
-Default 2.</p>
+
+<p>The maximum number of selected pairs for calculating empirical FDR. Default 20. For job <b>diff</b> only.</p>
+
 </dd>
-<dt><strong><a name="norm_count_deseq_no" class="item"><strong>-norm</strong> &lt;Count/DESeq/NO&gt;</a></strong></dt>
-
+<dt id="v-num"><b>-v</b> &lt;num&gt;</dt>
 <dd>
-<p>The way to do normalization. 'Count' stands for normalization by total number
-of mapped reads. 'DESeq' stands for the normalization proposed by DESeq. 'NO' 
-stands for no normalization. You can also specifiy a list of normalization constant
-separated by commas. E.g. 1.2,2.1,1.0,2.0. Note that the number of constants
-should be the same as the total number of samples (group1 and group2) and the order
-should be for -s1 followed by for -s2. GFOLD using normalization constants not by
-directly multiplication (scaling up) nor division (scaling down). The normalization 
-constants will be built into the model. In the model, division or multiplication 
-has no difference. Default 'DESeq'.</p>
+
+<p>Verbos level. A larger value gives more information of the running process. Default 2.</p>
+
+</dd>
+<dt id="norm-Count-DESeq-NO"><b>-norm</b> &lt;Count/DESeq/NO&gt;</dt>
+<dd>
+
+<p>The way to do normalization. &#39;Count&#39; stands for normalization by total number of mapped reads. &#39;DESeq&#39; stands for the normalization proposed by DESeq. &#39;NO&#39; stands for no normalization. You can also specifiy a list of normalization constant separated by commas. E.g. 1.2,2.1,1.0,2.0. Note that the number of constants should be the same as the total number of samples (group1 and group2) and the order should be for -s1 followed by for -s2. GFOLD using normalization constants not by directly multiplication (scaling up) nor division (scaling down). The normalization constants will be built into the model. In the model, division or multiplication has no difference. Default &#39;DESeq&#39;.</p>
+
 </dd>
 </dl>
-<p>
-</p>
-<hr />
-<h1><a name="output_format">OUTPUT FORMAT</a></h1>
+
+<h1 id="OUTPUT-FORMAT">OUTPUT FORMAT</h1>
+
 <p>All fields in a output file are separated by TABs.</p>
+
 <dl>
-<dt><strong><a name="for_job_count" class="item">For JOB <strong>count</strong>:</a></strong></dt>
 
+<dt id="For-JOB-count">For JOB <b>count</b>:</dt>
 <dd>
+
 <p>The output file contains 5 columns:</p>
-<ol>
-<li><strong><a name="genesymbol" class="item"><strong>GeneSymbol</strong>:</a></strong>
 
-<p>For BED file, this is the 4'th column. For GPF file, this is the first column. For GTF format, this corresponds to 'gene_id' if it exists, 'NA' otherwise.</p>
-</li>
-<li><strong><a name="genename" class="item"><strong>GeneName</strong>:</a></strong>
+<dl>
 
-<p>For BED file, this is always 'NA'. For GPF file, this is the 12'th column. For GTF format, this corresponds to 'gene_name' if it exists, 'NA' otherwise.</p>
-</li>
-<li><strong><a name="read_count" class="item"><strong>Read Count</strong>:</a></strong>
+<dt id="GeneSymbol">1. <b>GeneSymbol</b>:</dt>
+<dd>
+
+<p>For BED file, this is the 4&#39;th column. For GPF file, this is the first column. For GTF format, this corresponds to &#39;gene_id&#39; if it exists, &#39;NA&#39; otherwise.</p>
+
+</dd>
+<dt id="GeneName">2. <b>GeneName</b>:</dt>
+<dd>
+
+<p>For BED file, this is always &#39;NA&#39;. For GPF file, this is the 12&#39;th column. For GTF format, this corresponds to &#39;gene_name&#39; if it exists, &#39;NA&#39; otherwise.</p>
+
+</dd>
+<dt id="Read-Count">3. <b>Read Count</b>:</dt>
+<dd>
 
 <p>The number of reads mapped to this gene.</p>
-</li>
-<li><strong><a name="gene_exon_length" class="item"><strong>Gene exon length</strong>:</a></strong>
+
+</dd>
+<dt id="Gene-exon-length">4. <b>Gene exon length</b>:</dt>
+<dd>
 
 <p>The length sum of all the exons of this gene.</p>
-</li>
-<li><strong><a name="rpkm" class="item"><strong>RPKM</strong>:</a></strong>
+
+</dd>
+<dt id="RPKM">5. <b>RPKM</b>:</dt>
+<dd>
 
 <p>The expression level of this gene in RPKM.</p>
-</li>
-</ol>
-</dd>
-<dt><strong><a name="for_job_diff" class="item">For JOB <strong>diff</strong>:</a></strong></dt>
 
-<dd>
-<p>The first output file contains 7 columns:</p>
-<ol>
-<li><strong><a name="genesymbol2" class="item"><strong>#GeneSymbol</strong>:</a></strong>
-
-<p>Gene symbols. The order of gene symbol is the same as what appearing in the read count file.</p>
-</li>
-<li><strong><a name="genename2" class="item"><strong>GeneName</strong>:</a></strong>
-
-<p>Gene name. The order of gene name is the same as what appearing in the read count file.</p>
-</li>
-<li><strong><a name="gfold" class="item"><strong>GFOLD</strong>:</a></strong>
-
-<p>GFOLD value for every gene. The GFOLD value could be considered as a reliable
-log2 fold change. It is positive/negative if the gene is up/down regulated. The
-main usefulness of GFOLD is to provide a biological meanlingful ranking of the
-genes. The GFOLD value is zero if the gene doesn't show differential
-expression.  If the log2 fold change is treated as a random variable, a
-positive GFOLD value x means that the probability of the log2 fold change
-(2nd/1st) being larger than x is (1 - the parameter specified by <strong>-sc</strong>); A
-negative GFOLD value x means that the probability of the log2 fold change
-(2st/1nd) being smaller than x is (1 - the parameter specified by <strong>-sc</strong>). If
-this file is sorted by this column in descending order then genes ranked at the
-top are differentially up-regulated and genes ranked at the bottom are
-differentially down-regulated. Note that a gene with GFOLD value 0 should
-never be considered differentially expressed. However, it doesn't mean that all
-genes with non-negative GFOLD value are differentially expressed. For taking top
-differentially expressed genes, the user is responsible for selecting the cutoff.</p>
-</li>
-<li><strong><a name="e_fdr" class="item"><strong>E-FDR</strong>:</a></strong>
-
-<p>Empirical FDR based on replicates. It is always 1 when no replicates are available.</p>
-</li>
-<li><strong><a name="log2fdc" class="item"><strong>log2fdc</strong>:</a></strong>
-
-<p>log2 fold change. If no replicate is available, and <strong>-acc</strong> is T, log2 fold change
-is based on read counts and normalization constants. Otherwise, log2 fold change is
-based on the sampled expression level from the posterior distribution.</p>
-</li>
-<li><strong><a name="1strpkm" class="item"><strong>1stRPKM</strong>:</a></strong>
-
-<p>The RPKM for the first condition. It is available only if gene length is available. 
-If multiple replicates are available, the RPKM is calculated simply by summing over
-replicates. Because RPKM is acturally using sequencing depth as the normalization 
-constant, log2 fold change based on RPKM could be different from the log2fdc field.</p>
-</li>
-<li><strong><a name="2ndrpkm" class="item"><strong>2ndRPKM</strong>:</a></strong>
-
-<p>The RPKM for the second condition. It is available only if gene length is available.
-Please refer to <strong>1stRPKM</strong> for more information.</p>
-</li>
-</ol>
-<p>The second output file (.ext) contains the normalized read counts and gene description</p>
-<ol>
-<li><strong><a name="genesymbol3" class="item"><strong>#GeneSymbol</strong>:</a></strong>
-
-<p>Gene symbols. The order of gene symbol is the same as what appearing in the read count file.</p>
-</li>
-<li><strong><a name="normalized_read_counts" class="item"><strong>Normalized Read Counts</strong>:</a></strong>
-
-<p>Multiple columns (the same number of input samples) contains the read count normalized 
-by the calculated normalization constants. They are only muturally comparable and the absolute 
-values are meaningless.</p>
-</li>
-<li><strong><a name="gene_description" class="item"><strong>Gene Description</strong>:</a></strong>
-
-<p>The last column contains the associated gene description if the description file <strong>-d</strong> is provided.</p>
-</li>
-</ol>
 </dd>
 </dl>
-<p>
-</p>
-<hr />
-<h1><a name="author">AUTHOR</a></h1>
-<p>Jianxing Feng (<a href="mailto:jianxing.tongji@gmail.com">jianxing.tongji@gmail.com</a>)</p>
+
+</dd>
+<dt id="For-JOB-diff">For JOB <b>diff</b>:</dt>
+<dd>
+
+<p>The first output file contains 7 columns:</p>
+
+<dl>
+
+<dt id="GeneSymbol1">1. <b>#GeneSymbol</b>:</dt>
+<dd>
+
+<p>Gene symbols. The order of gene symbol is the same as what appearing in the read count file.</p>
+
+</dd>
+<dt id="GeneName1">2. <b>GeneName</b>:</dt>
+<dd>
+
+<p>Gene name. The order of gene name is the same as what appearing in the read count file.</p>
+
+</dd>
+<dt id="GFOLD">3. <b>GFOLD</b>:</dt>
+<dd>
+
+<p>GFOLD value for every gene. The GFOLD value could be considered as a reliable log2 fold change. It is positive/negative if the gene is up/down regulated. The main usefulness of GFOLD is to provide a biological meanlingful ranking of the genes. The GFOLD value is zero if the gene doesn&#39;t show differential expression. If the log2 fold change is treated as a random variable, a positive GFOLD value x means that the probability of the log2 fold change (2nd/1st) being larger than x is (1 - the parameter specified by <b>-sc</b>); A negative GFOLD value x means that the probability of the log2 fold change (2st/1nd) being smaller than x is (1 - the parameter specified by <b>-sc</b>). If this file is sorted by this column in descending order then genes ranked at the top are differentially up-regulated and genes ranked at the bottom are differentially down-regulated. Note that a gene with GFOLD value 0 should never be considered differentially expressed. However, it doesn&#39;t mean that all genes with non-negative GFOLD value are differentially expressed. For taking top differentially expressed genes, the user is responsible for selecting the cutoff.</p>
+
+</dd>
+<dt id="E-FDR">4. <b>E-FDR</b>:</dt>
+<dd>
+
+<p>Empirical FDR based on replicates. It is always 1 when no replicates are available.</p>
+
+</dd>
+<dt id="log2fdc">5. <b>log2fdc</b>:</dt>
+<dd>
+
+<p>log2 fold change. If no replicate is available, and <b>-acc</b> is T, log2 fold change is based on read counts and normalization constants. Otherwise, log2 fold change is based on the sampled expression level from the posterior distribution.</p>
+
+</dd>
+<dt id="stRPKM">6. <b>1stRPKM</b>:</dt>
+<dd>
+
+<p>The RPKM for the first condition. It is available only if gene length is available. If multiple replicates are available, the RPKM is calculated simply by summing over replicates. Because RPKM is acturally using sequencing depth as the normalization constant, log2 fold change based on RPKM could be different from the log2fdc field.</p>
+
+</dd>
+<dt id="ndRPKM">7. <b>2ndRPKM</b>:</dt>
+<dd>
+
+<p>The RPKM for the second condition. It is available only if gene length is available. Please refer to <b>1stRPKM</b> for more information.</p>
+
+</dd>
+</dl>
+
+<p>The second output file (.ext) contains the normalized read counts and gene description</p>
+
+<dl>
+
+<dt id="GeneSymbol2">1. <b>#GeneSymbol</b>:</dt>
+<dd>
+
+<p>Gene symbols. The order of gene symbol is the same as what appearing in the read count file.</p>
+
+</dd>
+<dt id="Normalized-Read-Counts">2. <b>Normalized Read Counts</b>:</dt>
+<dd>
+
+<p>Multiple columns (the same number of input samples) contains the read count normalized by the calculated normalization constants. They are only muturally comparable and the absolute values are meaningless.</p>
+
+</dd>
+<dt id="Gene-Description">3. <b>Gene Description</b>:</dt>
+<dd>
+
+<p>The last column contains the associated gene description if the description file <b>-d</b> is provided.</p>
+
+</dd>
+</dl>
+
+</dd>
+</dl>
+
+<h1 id="AUTHOR">AUTHOR</h1>
+
+<p>Jianxing Feng (jianxing.tongji@gmail.com)</p>
+
 <table border="0" width="100%" cellspacing="0" cellpadding="3">
-<tr><td class="block" valign="middle">
-<big><strong><span class="block">&nbsp;GFOLD V1.1.2</span></strong></big>
+<tr><td class="_podblock_" valign="middle">
+<big><strong><span class="_podblock_">&nbsp;GFOLD V1.1.4</span></strong></big>
 </td></tr>
 </table>
 
 </body>
 
 </html>
+
+
