@@ -1,18 +1,34 @@
 /*
+ * Copyright (C) 2012-2017 Jianxing Feng
+ * 
+ * This program is free software; you can redistribute it and/or modify
+ * it under the terms of the GNU General Public License as published by
+ * the Free Software Foundation; either version 3 of the License, or (at
+ * your option) any later version.
+ * 
+ * This program is distributed in the hope that it will be useful, but
+ * WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
+ * General Public License for more details.
+ * 
+ * You should have received a copy of the GNU General Public License
+ * along with this program; if not, write to the Free Software
+ * Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301, USA.
+ */
+
+/*
  * =====================================================================================
  *
  *       Filename:  GeneInfo.hpp
  *
- *    Description:  A simple class storing and manipulating all the needed data from a 
- *                  gene annotation table.
+ *    Description:  A simple class storing and manipulating all the needed data
+ *    from a gene annotation table.
  *
- *        Version:  1.0
- *        Created:  05/01/11 10:20:57
- *       Revision:  none
- *       Compiler:  gcc
+ *        Version:  1.0 Created:  05/01/11 10:20:57 Revision:  none Compiler:
+ *        gcc
  *
- *         Author:  Jianxing Feng (), jianxing.tongji@gmail.com
- *        Company:  Tongji Univ.
+ *         Author:  Jianxing Feng (), jianxing.tongji@gmail.com Company:
+ *         Tongji Univ.
  *
  * =====================================================================================
  */
