@@ -167,8 +167,8 @@ sample1.sam and sample2.sam are the mapped reads in \s-1SAM\s0 format.
 .PD 0
 .IP "\fBgfold count \-ann hg19Ref.gtf \-tag sample2.sam \-o sample2.read_cnt\fR" 3
 .IX Item "gfold count -ann hg19Ref.gtf -tag sample2.sam -o sample2.read_cnt"
-.IP "\fBgfold diff \-s1 sample1 \-s2 sample2 \-suf .read_cnt \-o sample1VSsample2.diff \fR" 3
-.IX Item "gfold diff -s1 sample1 -s2 sample2 -suf .read_cnt -o sample1VSsample2.diff "
+.IP "\fBgfold diff \-s1 sample1 \-s2 sample2 \-suf .read_cnt \-o sample2VSsample1.diff \fR" 3
+.IX Item "gfold diff -s1 sample1 -s2 sample2 -suf .read_cnt -o sample2VSsample1.diff "
 .PD
 .SS "Example 2: Count reads"
 .IX Subsection "Example 2: Count reads"
@@ -180,20 +180,20 @@ This example utilizes samtools to produce mapped reads in \s-1SAM\s0 format from
 Suppose there are two samples: sample1 and sample2 with corresponding read
 count file being sample1.read_cnt sample2.read_cnt. This example finds
 differentially expressed genes using default parameters on two samples
-.IP "\fBgfold diff \-s1 sample1 \-s2 sample2 \-suf .read_cnt \-o sample1VSsample2.diff\fR" 3
-.IX Item "gfold diff -s1 sample1 -s2 sample2 -suf .read_cnt -o sample1VSsample2.diff"
+.IP "\fBgfold diff \-s1 sample1 \-s2 sample2 \-suf .read_cnt \-o sample2VSsample1.diff\fR" 3
+.IX Item "gfold diff -s1 sample1 -s2 sample2 -suf .read_cnt -o sample2VSsample1.diff"
 .SS "Example 4: Identify differentially expressed genes with replicates"
 .IX Subsection "Example 4: Identify differentially expressed genes with replicates"
 This example finds differentially expressed genes using default parameters on two group of samples.
-.IP "\fBgfold diff \-s1 sample1,sample2,sample3 \-s2 sample4,sample5,sample6 \-suf .read_cnt \-o 123VS456.diff\fR" 3
-.IX Item "gfold diff -s1 sample1,sample2,sample3 -s2 sample4,sample5,sample6 -suf .read_cnt -o 123VS456.diff"
+.IP "\fBgfold diff \-s1 sample1,sample2,sample3 \-s2 sample4,sample5,sample6 \-suf .read_cnt \-o 456VS123.diff\fR" 3
+.IX Item "gfold diff -s1 sample1,sample2,sample3 -s2 sample4,sample5,sample6 -suf .read_cnt -o 456VS123.diff"
 .SS "Example 5: Identify differentially expressed genes with replicates only in one condition"
 .IX Subsection "Example 5: Identify differentially expressed genes with replicates only in one condition"
 This example finds differentially expressed genes using default parameters on two group of samples.
 Only the first group contains replicates. In this case, the variance estimated based on the first
 group will be used as the variance of the second group.
-.IP "\fBgfold diff \-s1 sample1,sample2 \-s2 sample3 \-suf .read_cnt \-o 12VS3.diff\fR" 3
-.IX Item "gfold diff -s1 sample1,sample2 -s2 sample3 -suf .read_cnt -o 12VS3.diff"
+.IP "\fBgfold diff \-s1 sample1,sample2 \-s2 sample3 \-suf .read_cnt \-o 3VS12.diff\fR" 3
+.IX Item "gfold diff -s1 sample1,sample2 -s2 sample3 -suf .read_cnt -o 3VS12.diff"
 .SH "JOBS"
 .IX Header "JOBS"
 .PD 0

@@ -35,7 +35,7 @@ sample1.sam and sample2.sam are the mapped reads in SAM format.
 
 =item B<gfold count -ann hg19Ref.gtf -tag sample2.sam -o sample2.read_cnt>
 
-=item B<gfold diff -s1 sample1 -s2 sample2 -suf .read_cnt -o sample1VSsample2.diff >
+=item B<gfold diff -s1 sample1 -s2 sample2 -suf .read_cnt -o sample2VSsample1.diff >
 
 =back
 
@@ -59,7 +59,7 @@ differentially expressed genes using default parameters on two samples
 
 =over 3
 
-=item B<gfold diff -s1 sample1 -s2 sample2 -suf .read_cnt -o sample1VSsample2.diff>
+=item B<gfold diff -s1 sample1 -s2 sample2 -suf .read_cnt -o sample2VSsample1.diff>
 
 =back
 
@@ -70,7 +70,7 @@ This example finds differentially expressed genes using default parameters on tw
 
 =over 3
 
-=item B<gfold diff -s1 sample1,sample2,sample3 -s2 sample4,sample5,sample6 -suf .read_cnt -o 123VS456.diff>
+=item B<gfold diff -s1 sample1,sample2,sample3 -s2 sample4,sample5,sample6 -suf .read_cnt -o 564VS123.diff>
 
 =back
 
@@ -82,7 +82,7 @@ group will be used as the variance of the second group.
 
 =over 3
 
-=item B<gfold diff -s1 sample1,sample2 -s2 sample3 -suf .read_cnt -o 12VS3.diff>
+=item B<gfold diff -s1 sample1,sample2 -s2 sample3 -suf .read_cnt -o 3VS12.diff>
 
 =back
 
