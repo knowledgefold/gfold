@@ -1,6 +1,8 @@
-Advertisement: Please take a look another package of mine for workflow.
-https://bitbucket.org/feeldead/smartflow/
+This an official replacement for https://bitbucket.org/feeldead/gfold/
 
+Because bitbucket no longer supports mercurial repo and we don't know
+how to replace the original GFOLD mercurial repo to git repo, we move
+GFOLD to github.
 
 Note that https://bitbucket.org/feeldead/gfold/ may have updated README file
 If you cannot download from bitbucket, please try the following link:
